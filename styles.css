@@ -1,0 +1,352 @@
+:root {
+  --fr: 8.5;
+  --bg: #efe9dc;;
+  --ink: #000;
+  --meal: #e36b1c;
+  --salad: #2f8f4e;
+  --beer: #d6a100;
+  --drink: #2c6cb5;
+  --title: calc(29 / var(--fr) * 1rem);
+  --section: calc(12 / var(--fr) * 1rem);
+  --item: calc(11 / var(--fr) * 1rem);
+  --price: calc(10 / var(--fr) * 1rem);
+  --label: calc(9 / var(--fr) * 1rem);
+  --label-sm: calc(8 / var(--fr) * 1rem);
+  --en: calc(7.7 / var(--fr) * 1rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "sama-latin", sans-serif;
+  font-size: 100%;
+  font-weight: 400;
+  line-height: 1.35;
+}
+
+.leaf-defs {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.site-header,
+main,
+.site-footer {
+  width: min(70rem, calc(100% - 2rem));
+  margin-inline: auto;
+}
+
+.site-header {
+  container-type: inline-size;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.7em;
+  padding: 1.25rem 0 0.85rem;
+  border-bottom: 1px solid var(--ink);
+  /* 1rem on a wide bar; shrink the pair together so the address stays about two lines. */
+  font-size: min(1rem, calc(100cqi / 26.5));
+}
+
+.site-name,
+.site-address,
+.kicker,
+.page-mark,
+.section-head h2,
+.section-en,
+.item-name,
+.price,
+.site-footer p {
+  font-family: "kopik", sans-serif;
+  color: var(--ink);
+}
+
+.site-name {
+  margin: 0;
+  flex: 0 0 auto;
+  font-size: calc(12 / var(--fr) * 1em);
+  font-weight: 700;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.site-address {
+  margin: 0.12em 0 0;
+  flex: 1 1 auto;
+  min-width: 0;
+  font-family: "sama-latin", sans-serif;
+  font-size: calc(8 / var(--fr) * 1em);
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: right;
+}
+
+.band {
+  margin-top: 2rem;
+}
+
+.band-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.band-titles h1 {
+  margin: 0;
+  font-family: "kopik", sans-serif;
+  font-size: var(--title);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+}
+
+.kicker,
+.page-mark {
+  margin: 0.35rem 0 0;
+  font-size: var(--label);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.04em;
+}
+
+.kicker {
+  margin-top: 0.75rem;
+}
+
+.page-mark {
+  margin-top: 0.35rem;
+}
+
+.menu-section {
+  margin-top: 1.85rem;
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.2rem 1.25rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--ink);
+}
+
+.section-head h2 {
+  margin: 0;
+  flex: 1 1 auto;
+  min-width: min(100%, max-content);
+  font-size: var(--section);
+  font-weight: 700;
+  line-height: 1.15;
+  color: #6c0025;
+}
+
+.section-en {
+  margin: 0 0 0 auto;
+  flex: 0 0 auto;
+  font-size: var(--label-sm);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.03em;
+  text-align: right;
+  color: #6c0025;
+}
+
+.note {
+  margin: 0 0 1rem;
+}
+
+.desc-fr,
+.desc-en {
+  display: block;
+  color: var(--ink);
+}
+
+.desc-fr {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.desc-en {
+  margin-top: 0.12rem;
+  font-size: var(--en);
+  line-height: 1.35;
+}
+
+.items {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem 2.25rem;
+}
+
+.item {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0.15rem 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.item:focus-visible {
+  outline: 1px solid var(--ink);
+  outline-offset: 4px;
+}
+
+.item-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.item-name {
+  min-width: 0;
+  font-size: var(--item);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.price {
+  flex: none;
+  font-size: var(--price);
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.item .desc-fr {
+  margin-top: 0.22rem;
+}
+
+.leaf {
+  width: 0.95em;
+  height: 0.95em;
+  margin-left: 0.28em;
+  vertical-align: -0.12em;
+  display: inline-block;
+  color: #006c47;
+}
+
+.site-footer {
+  margin-top: 2.75rem;
+  margin-bottom: 1.5rem;
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--ink);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: var(--label-sm);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+}
+
+@media (min-width: 800px) {
+  .site-header,
+  main,
+  .site-footer {
+    width: min(70rem, calc(100% - 4rem));
+  }
+
+  .items {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .span-all {
+    grid-column: 1 / -1;
+  }
+}
+
+@keyframes glow-meal {
+  0% { text-shadow: 0 0 0 transparent; }
+  35% { text-shadow: 0 0 8px var(--meal), 0 0 18px var(--meal); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+@keyframes glow-salad {
+  0% { text-shadow: 0 0 0 transparent; }
+  35% { text-shadow: 0 0 8px var(--salad), 0 0 18px var(--salad); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+@keyframes glow-beer {
+  0% { text-shadow: 0 0 0 transparent; }
+  35% { text-shadow: 0 0 8px var(--beer), 0 0 20px var(--beer); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+@keyframes glow-drink {
+  0% { text-shadow: 0 0 0 transparent; }
+  35% { text-shadow: 0 0 8px var(--drink), 0 0 18px var(--drink); }
+  100% { text-shadow: 0 0 0 transparent; }
+}
+
+.glow-meal .item-name,
+.glow-meal .price,
+.glow-meal .desc-fr,
+.glow-meal .desc-en {
+  animation: glow-meal 0.85s ease;
+}
+
+.glow-salad .item-name,
+.glow-salad .price,
+.glow-salad .desc-fr,
+.glow-salad .desc-en {
+  animation: glow-salad 0.85s ease;
+}
+
+.glow-beer .item-name,
+.glow-beer .price,
+.glow-beer .desc-fr,
+.glow-beer .desc-en {
+  animation: glow-beer 0.85s ease;
+}
+
+.glow-drink .item-name,
+.glow-drink .price,
+.glow-drink .desc-fr,
+.glow-drink .desc-en {
+  animation: glow-drink 0.85s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glow-meal .item-name,
+  .glow-meal .price,
+  .glow-meal .desc-fr,
+  .glow-meal .desc-en,
+  .glow-salad .item-name,
+  .glow-salad .price,
+  .glow-salad .desc-fr,
+  .glow-salad .desc-en,
+  .glow-beer .item-name,
+  .glow-beer .price,
+  .glow-beer .desc-fr,
+  .glow-beer .desc-en,
+  .glow-drink .item-name,
+  .glow-drink .price,
+  .glow-drink .desc-fr,
+  .glow-drink .desc-en {
+    animation: none;
+  }
+}

@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hachi-Maru-Hachi</title>
+  <link rel="stylesheet" href="https://use.typekit.net/jgl0cbu.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" class="leaf-defs" aria-hidden="true" focusable="false">
+    <symbol id="leaf" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 20V10"/>
+      <path fill="currentColor" d="M12 11c-1-4-5-6-8-5 1 4 4 6 8 5z"/>
+      <path fill="currentColor" d="M12 13c1-4 5-6 8-5-1 4-4 6-8 5z"/> 
+      <!--
+      /*<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c2.2-6.2 5.4-10.2 14-14-1.2 8.2-5.2 13.2-12.2 15.2"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M9.2 14.2c1.8-1.2 3.8-3.2 5.6-6"/>
+      -->
+    </symbol>
+  </svg>
+
+  <header class="site-header">
+    <p class="site-name">Hachi-Maru-Hachi</p>
+    <p class="site-address">808, rue Jean-Talon Ouest · Montréal</p>
+  </header>
+
+  <main>
+    <section class="band" aria-labelledby="a-manger">
+      <div class="band-head">
+        <div class="band-titles">
+          <h1 id="a-manger">À MANGER</h1>
+          <p class="kicker">FOOD</p>
+        </div>
+        <p class="page-mark"></p>
+      </div>
+
+      <section class="menu-section" aria-labelledby="soupe">
+        <div class="section-head">
+          <h2 id="soupe">SOUPE ET SUPPLÉMENT</h2>
+          <p class="section-en">SOUP &amp; EXTRA</p>
+        </div>
+        <div class="items">
+          <button type="button" class="item span-all" data-glow="salad">
+            <span class="item-top">
+              <span class="item-name">Soupe miso végétalienne<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Bouillon japonais au miso, doux et réconfortant.</span>
+            <span class="desc-en">Vegan Japanese miso soup.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Œuf onsen</span>
+              <span class="price">2 $</span>
+            </span>
+            <span class="desc-fr">Œuf cuit lentement, au jaune crémeux et au blanc soyeux.</span>
+            <span class="desc-en">Slow-cooked egg with a creamy yolk and silky white.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Riz supplémentaire</span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Portion de riz blanc.</span>
+            <span class="desc-en">Extra steamed rice.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="accompagnements">
+        <div class="section-head">
+          <h2 id="accompagnements">ACCOMPAGNEMENTS</h2>
+          <p class="section-en">SIDES</p>
+        </div>
+        <div class="items">
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Poulet karaage</span>
+              <span class="price">10 $</span>
+            </span>
+            <span class="desc-fr">Poulet frit japonais, mayonnaise; 5 ou 4 gros.</span>
+            <span class="desc-en">Japanese fried chicken with mayo; 5 or 4 large.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Nasu agebitashi</span>
+              <span class="price">8 $</span>
+            </span>
+            <span class="desc-fr">Aubergine frite, marinée dans un bouillon.</span>
+            <span class="desc-en">Fried eggplant in savoury broth.</span>
+          </button>
+          <button type="button" class="item" data-glow="salad">
+            <span class="item-top">
+              <span class="item-name">Mini salade</span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Petite salade fraîche.</span>
+            <span class="desc-en">Small fresh salad.</span>
+          </button>
+          <button type="button" class="item" data-glow="salad">
+            <span class="item-top">
+              <span class="item-name">Salade au karaage</span>
+              <span class="price">10 $</span>
+            </span>
+            <span class="desc-fr">Salade garnie de poulet frit croustillant.</span>
+            <span class="desc-en">Salad with crispy Japanese fried chicken.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="plats">
+        <div class="section-head">
+          <h2 id="plats">PLATS PRINCIPAUX</h2>
+          <p class="section-en">MAIN DISHES</p>
+        </div>
+        <div class="items">
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Gyudon</span>
+              <span class="price">16 $</span>
+            </span>
+            <span class="desc-fr">Bol de riz au bœuf mijoté dans une sauce japonaise légèrement sucrée.</span>
+            <span class="desc-en">Rice bowl with beef simmered in a lightly sweet Japanese sauce.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Oyakodon</span>
+              <span class="price">16 $</span>
+            </span>
+            <span class="desc-fr">Bol de riz au poulet et à l’œuf tendre dans un bouillon savoureux.</span>
+            <span class="desc-en">Rice bowl with chicken and soft egg in a savoury broth.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Mapo tofu<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
+              <span class="price">16 $</span>
+            </span>
+            <span class="desc-fr">Tofu en sauce relevée; au choix végétalien ou au bœuf.</span>
+            <span class="desc-en">Tofu in a spiced sauce; vegan or beef.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Curry japonais<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
+              <span class="price">15 $</span>
+            </span>
+            <span class="desc-fr">Curry doux servi avec du riz; végétalien ou au poulet.</span>
+            <span class="desc-en">Mild curry with rice; vegan or chicken.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Udon au kakiage<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
+              <span class="price">15 $</span>
+            </span>
+            <span class="desc-fr">Nouilles udon et tempura croustillant de légumes; végétalien.</span>
+            <span class="desc-en">Udon noodles with crispy vegetable tempura; vegan.</span>
+          </button>
+          <button type="button" class="item" data-glow="meal">
+            <span class="item-top">
+              <span class="item-name">Udon au curry<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
+              <span class="price">16 $</span>
+            </span>
+            <span class="desc-fr">Nouilles udon dans un bouillon au curry; végétalien ou au poulet.</span>
+            <span class="desc-en">Udon noodles in curry broth; vegan or chicken.</span>
+          </button>
+        </div>
+      </section>
+    </section>
+
+    <section class="band" aria-labelledby="a-boire">
+      <div class="band-head">
+        <div class="band-titles">
+          <h1 id="a-boire">À BOIRE</h1>
+          <p class="kicker">DRINKS</p>
+        </div>
+        <p class="page-mark">02</p>
+      </div>
+
+      <section class="menu-section" aria-labelledby="bieres">
+        <div class="section-head">
+          <h2 id="bieres">BIÈRES JAPONAISES AU KOJI</h2>
+          <p class="section-en">JAPANESE KOJI BEERS</p>
+        </div>
+        <p class="note">
+          <span class="desc-fr">Bières brassées avec du koji, un ferment traditionnel japonais qui enrichit les arômes.</span>
+          <span class="desc-en">Beers brewed with koji, a traditional Japanese fermentation culture.</span>
+        </p>
+        <div class="items">
+          <button type="button" class="item" data-glow="beer">
+            <span class="item-top">
+              <span class="item-name">Cardamom Masüm lager</span>
+              <span class="price">6 $</span>
+            </span>
+            <span class="desc-fr">Lager au koji et à la cardamome.</span>
+            <span class="desc-en">Koji lager with cardamom.</span>
+          </button>
+          <button type="button" class="item" data-glow="beer">
+            <span class="item-top">
+              <span class="item-name">Suzuki IPA</span>
+              <span class="price">7 $</span>
+            </span>
+            <span class="desc-fr">IPA japonaise brassée avec du koji.</span>
+            <span class="desc-en">Japanese-style IPA brewed with koji.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="sans-alcool">
+        <div class="section-head">
+          <h2 id="sans-alcool">BOISSONS SANS ALCOOL</h2>
+          <p class="section-en">NON-ALCOHOLIC DRINKS</p>
+        </div>
+        <div class="items">
+          <button type="button" class="item" data-glow="drink">
+            <span class="item-top">
+              <span class="item-name">Lassi à l’amazake</span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Boisson crémeuse à base d’amazake, riz fermenté japonais sans alcool.</span>
+            <span class="desc-en">Creamy drink with non-alcoholic Japanese fermented rice.</span>
+          </button>
+          <button type="button" class="item" data-glow="drink">
+            <span class="item-top">
+              <span class="item-name">Amazake nature</span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Boisson naturellement douce à base de riz fermenté, sans alcool.</span>
+            <span class="desc-en">Naturally sweet, non-alcoholic fermented rice drink.</span>
+          </button>
+          <button type="button" class="item" data-glow="drink">
+            <span class="item-top">
+              <span class="item-name">Nigori Ume</span>
+              <span class="price">5 $</span>
+            </span>
+            <span class="desc-fr">Boisson japonaise à la prune ume.</span>
+            <span class="desc-en">Japanese ume plum drink.</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="menu-section" aria-labelledby="chaudes">
+        <div class="section-head">
+          <h2 id="chaudes">BOISSONS CHAUDES</h2>
+          <p class="section-en">HOT DRINKS</p>
+        </div>
+        <div class="items">
+          <button type="button" class="item" data-glow="drink">
+            <span class="item-top">
+              <span class="item-name">Café</span>
+              <span class="price">3 $</span>
+            </span>
+            <span class="desc-fr">Café fraîchement préparé.</span>
+            <span class="desc-en">Coffee.</span>
+          </button>
+          <button type="button" class="item" data-glow="drink">
+            <span class="item-top">
+              <span class="item-name">Thé</span>
+              <span class="price">3,50 $</span>
+            </span>
+            <span class="desc-fr">Thé chaud.</span>
+            <span class="desc-en">Hot tea.</span>
+          </button>
+        </div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>HACHI-MARU-HACHI</p>
+  </footer>
+
+  <script src="menu.js"></script>
+</body>
+</html>
