@@ -36,6 +36,28 @@ body {
   line-height: 1.35;
 }
 
+.menu-reveal {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  pointer-events: none;
+  background-image: linear-gradient(135deg, transparent 0%, transparent 50%, var(--bg) 82%);
+  background-size: 280% 280%;
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  animation: menu-reveal 3s ease forwards;
+}
+
+@keyframes menu-reveal {
+  from {
+    background-position: 100% 100%;
+  }
+
+  to {
+    background-position: 0% 0%;
+  }
+}
+
 .leaf-defs {
   position: absolute;
   width: 0;
@@ -331,6 +353,11 @@ main,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .menu-reveal {
+    animation: none;
+    opacity: 0;
+  }
+
   .glow-meal .item-name,
   .glow-meal .price,
   .glow-meal .desc-fr,
