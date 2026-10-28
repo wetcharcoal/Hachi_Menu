@@ -281,6 +281,37 @@ main,
   gap: 1.15rem 2.25rem;
 }
 
+.plats-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+  margin: 0;
+}
+
+.plats-photos figure {
+  margin: 0;
+  min-width: 0;
+}
+
+.plats-photos img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2767 / 2702;
+  object-fit: cover;
+}
+
+.plats-photos figcaption {
+  margin: 0.28rem 0 0;
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
+  font-size: var(--en);
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  color: inherit;
+}
+
 .item {
   display: block;
   width: 100%;
@@ -406,6 +437,38 @@ main,
 
   .items {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .plats .items {
+    grid-template-rows: repeat(4, auto);
+    grid-auto-flow: column;
+  }
+
+  .plats-photos {
+    grid-column: 2;
+    grid-row: 3 / span 2;
+    align-self: stretch;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .plats-photos figure {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+  }
+
+  .plats-photos img {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 0;
+    aspect-ratio: auto;
+  }
+
+  .plats-photos figcaption {
+    flex: none;
   }
 
   .span-all {
@@ -878,6 +941,26 @@ main,
 
 .pdf-sheet .item {
   cursor: default;
+}
+
+.pdf-sheet .pdf-plats-photos figure {
+  margin: 0;
+}
+
+.pdf-sheet .pdf-plats-photos canvas {
+  display: block;
+  width: 100%;
+}
+
+.pdf-sheet .pdf-plats-photos figcaption {
+  margin: 0.28rem 0 0;
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
+  font-weight: 400;
+  font-size: var(--en);
+  line-height: 1.3;
+  text-align: center;
+  color: #fff;
 }
 
 .pdf-sheet .band.pdf-continued,
