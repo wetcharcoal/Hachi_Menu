@@ -7,8 +7,16 @@
   <link rel="stylesheet" href="https://use.typekit.net/jgl0cbu.css">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://use.typekit.net/dgh7msb.css">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body class="is-dark">
+  <button type="button" class="download-menu" aria-label="Télécharger le menu" title="Télécharger le menu">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5v10"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m7.5 10 4.5 4.5 4.5-4.5"/>
+      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 16.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5"/>
+    </svg>
+  </button>
   <div class="style-track">
     <article class="style-page style-akebono is-active" data-theme="dark">
   <svg xmlns="http://www.w3.org/2000/svg" class="leaf-defs" aria-hidden="true" focusable="false">
@@ -20,6 +28,25 @@
       /*<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c2.2-6.2 5.4-10.2 14-14-1.2 8.2-5.2 13.2-12.2 15.2"/>
       <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M9.2 14.2c1.8-1.2 3.8-3.2 5.6-6"/>
       -->
+    </symbol>
+    <symbol id="wheat-head" viewBox="0 0 24 24">
+      <ellipse cx="12" cy="5.55" rx="1.2" ry="1.85" fill="currentColor"/>
+      <ellipse cx="10.45" cy="8.35" rx="1.05" ry="1.75" fill="currentColor" transform="rotate(-32 10.45 8.35)"/>
+      <ellipse cx="13.55" cy="8.35" rx="1.05" ry="1.75" fill="currentColor" transform="rotate(32 13.55 8.35)"/>
+      <ellipse cx="10.2" cy="11.45" rx="1.05" ry="1.8" fill="currentColor" transform="rotate(-40 10.2 11.45)"/>
+      <ellipse cx="13.8" cy="11.45" rx="1.05" ry="1.8" fill="currentColor" transform="rotate(40 13.8 11.45)"/>
+      <ellipse cx="10.55" cy="14.45" rx="0.98" ry="1.65" fill="currentColor" transform="rotate(-50 10.55 14.45)"/>
+      <ellipse cx="13.45" cy="14.45" rx="0.98" ry="1.65" fill="currentColor" transform="rotate(50 13.45 14.45)"/>
+    </symbol>
+    <symbol id="wheat-ear" viewBox="0 0 24 24">
+      <path fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" d="M12 20.7V7.6"/>
+      <use href="#wheat-head"/>
+    </symbol>
+    <symbol id="gluten" viewBox="0 0 24 24">
+      <g transform="translate(0 0.7) translate(12 12) scale(0.838) translate(-12 -12)">
+        <use href="#wheat-ear"/>
+        <path fill="none" stroke="#E23B3B" stroke-width="1.8" stroke-linecap="round" d="M4.4 18.6 19.6 5.4"/>
+      </g>
     </symbol>
   </svg>
       <header class="alt-brand alt-brand-center">
@@ -36,7 +63,22 @@
           <h1 id="s1-a-manger">À MANGER</h1>
           <p class="kicker">FOOD</p>
         </div>
-        <p class="page-mark"></p>
+        <ul class="band-legend">
+          <li>
+            <svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg>
+            <span class="legend-sep" aria-hidden="true">·</span>
+            <span class="desc-fr">végétalienne</span>
+            <span class="legend-sep" aria-hidden="true">·</span>
+            <span class="desc-en">vegan</span>
+          </li>
+          <li>
+            <svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg>
+            <span class="legend-sep" aria-hidden="true">·</span>
+            <span class="desc-fr">sans gluten</span>
+            <span class="legend-sep" aria-hidden="true">·</span>
+            <span class="desc-en">gluten free</span>
+          </li>
+        </ul>
       </div>
 
       <section class="menu-section" aria-labelledby="s1-soupe">
@@ -63,7 +105,7 @@
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
-              <span class="item-name">Riz supplémentaire</span>
+              <span class="item-name">Riz supplémentaire<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">5 $</span>
             </span>
             <span class="desc-fr">Portion de riz blanc.</span>
@@ -88,7 +130,7 @@
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
-              <span class="item-name">Nasu agebitashi</span>
+              <span class="item-name">Nasu agebitashi<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">8 $</span>
             </span>
             <span class="desc-fr">Aubergine frite, marinée dans un bouillon.</span>
@@ -96,7 +138,7 @@
           </button>
           <button type="button" class="item" data-glow="salad">
             <span class="item-top">
-              <span class="item-name">Mini salade</span>
+              <span class="item-name">Mini salade<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">5 $</span>
             </span>
             <span class="desc-fr">Petite salade fraîche.</span>
@@ -112,19 +154,11 @@
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
-              <span class="item-name">Frites/Frites Okonomi</span>
+              <span class="item-name">Frites/Frites Okonomi<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
               <span class="price">5 / 7 $</span>
             </span>
-            <span class="desc-fr">Frites ou Frites Japonaise.</span>
-            <span class="desc-en">Fries or Japanese-style fries.</span>
-          </button>
-          <button type="button" class="item" data-glow="salad">
-            <span class="item-top">
-              <span class="item-name">Concombre Épicé (Sans Gluten)</span>
-              <span class="price">5 $</span>
-            </span>
-            <span class="desc-fr">Salade concombre épicé.</span>
-            <span class="desc-en">Spicy cucumber salad.</span>
+            <span class="desc-fr">Frites (végétalienne) ou frites Japonaise (non végétalienne).</span>
+            <span class="desc-en">Fries (vegan) or Japanese-style fries (not vegan).</span>
           </button>
         </div>
       </section>
@@ -137,7 +171,7 @@
         <div class="items">
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
-              <span class="item-name">Gyudon</span>
+              <span class="item-name">Gyudon<svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">16 $</span>
             </span>
             <span class="desc-fr">Bol de riz au bœuf mijoté dans une sauce japonaise légèrement sucrée.</span>
@@ -145,7 +179,7 @@
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
-              <span class="item-name">Oyakodon (sans gluten)</span>
+              <span class="item-name">Oyakodon<svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">16 $</span>
             </span>
             <span class="desc-fr">Bol de riz au poulet et à l’œuf tendre dans un bouillon savoureux.</span>
@@ -156,8 +190,8 @@
               <span class="item-name">Mapo tofu<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
               <span class="price">16 $</span>
             </span>
-            <span class="desc-fr">Tofu en sauce relevée; au choix végétalien ou au bœuf.</span>
-            <span class="desc-en">Tofu in a spiced sauce; vegan or beef.</span>
+            <span class="desc-fr">Tofu en sauce relevée.</span>
+            <span class="desc-en">Tofu in a spiced sauce.</span>
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
@@ -172,16 +206,16 @@
               <span class="item-name">Udon au kakiage<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
               <span class="price">15 / 17 $</span>
             </span>
-            <span class="desc-fr">Nouilles udon et tempura croustillant de légumes; végétalien, ou bien calmar et crevettes.</span>
-            <span class="desc-en">Udon noodles with crispy vegetable tempura; vegan, or squid and shrimp.</span>
+            <span class="desc-fr">Nouilles udon et tempura croustillant de légumes; végétalien, ou bien calmar et crevettes (+ 2 $).</span>
+            <span class="desc-en">Udon noodles with crispy vegetable tempura; vegan, or squid and shrimp (+ $2).</span>
           </button>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
               <span class="item-name">Udon au curry<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">16 $</span>
+              <span class="price">16 / 18 $</span>
             </span>
-            <span class="desc-fr">Nouilles udon dans un bouillon au curry; végétalien ou au poulet.</span>
-            <span class="desc-en">Udon noodles in curry broth; vegan or chicken.</span>
+            <span class="desc-fr">Nouilles udon dans un bouillon au curry; végétalien ou au poulet (+ 2 $).</span>
+            <span class="desc-en">Udon noodles in curry broth; vegan or chicken (+ $2).</span>
           </button>
         </div>
       </section>
@@ -233,14 +267,6 @@
         <div class="items">
           <button type="button" class="item" data-glow="drink">
             <span class="item-top">
-              <span class="item-name">Lassi à l’amazake</span>
-              <span class="price">5 $</span>
-            </span>
-            <span class="desc-fr">Boisson crémeuse à base d’amazake, riz fermenté japonais sans alcool.</span>
-            <span class="desc-en">Creamy drink with non-alcoholic Japanese fermented rice.</span>
-          </button>
-          <button type="button" class="item" data-glow="drink">
-            <span class="item-top">
               <span class="item-name">Amazake nature</span>
               <span class="price">5 $</span>
             </span>
@@ -285,11 +311,14 @@
     </section>
       </div>
   <footer class="site-footer">
-    <p>HACHI-MARU-HACHI</p>
+    <p class="footer-name">HACHI-MARU-HACHI</p>
+    <a class="footer-phone" href="tel:+15142706666">514 · 270 · 6666</a>
+    <p class="footer-address">808 rue Jean-Talon Ouest</p>
   </footer>
     </article>
   </div>
 
   <script src="menu.js"></script>
+  <script src="pdf.js"></script>
 </body>
 </html>
