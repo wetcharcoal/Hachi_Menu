@@ -24,16 +24,24 @@
 html {
   background: var(--bg);
   color: var(--ink);
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
   background: var(--bg);
   color: var(--ink);
-  font-family: "sama-latin", sans-serif;
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
   font-size: 100%;
   font-weight: 400;
   line-height: 1.35;
+}
+
+body.is-dark {
+  background: #000;
 }
 
 .menu-reveal {
@@ -67,7 +75,9 @@ body {
 
 .site-header,
 main,
-.site-footer {
+.menu-body,
+.site-footer,
+.alt-brand {
   width: min(70rem, calc(100% - 2rem));
   margin-inline: auto;
 }
@@ -110,7 +120,8 @@ main,
   margin: 0.12em 0 0;
   flex: 1 1 auto;
   min-width: 0;
-  font-family: "sama-latin", sans-serif;
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
   font-size: calc(8 / var(--fr) * 1em);
   font-weight: 400;
   line-height: 1.25;
@@ -214,6 +225,7 @@ main,
 .items {
   display: grid;
   grid-template-columns: 1fr;
+  align-items: start;
   gap: 1.15rem 2.25rem;
 }
 
@@ -287,7 +299,9 @@ main,
 @media (min-width: 800px) {
   .site-header,
   main,
-  .site-footer {
+  .menu-body,
+  .site-footer,
+  .alt-brand {
     width: min(70rem, calc(100% - 4rem));
   }
 
@@ -375,5 +389,244 @@ main,
   .glow-drink .desc-fr,
   .glow-drink .desc-en {
     animation: none;
+  }
+}
+
+/* Akebono, ITC Avant Garde Gothic Pro, and Bakemono are not in kit jgl0cbu yet.
+   Family names match Adobe Fonts: p22-akebono, itc-avant-garde-gothic-pro, bakemono-variable. */
+
+.style-track {
+  height: 100%;
+  height: 100dvh;
+  position: relative;
+  overflow: hidden;
+}
+
+.style-page {
+  position: absolute;
+  inset: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  touch-action: pan-y;
+  transform: translateX(100%);
+  transition: transform 0.45s ease;
+}
+
+.style-original {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.style-page.is-active {
+  transform: translateX(0);
+}
+
+.style-page.is-before {
+  transform: translateX(-100%);
+}
+
+.alt-brand-center {
+  text-align: center;
+}
+
+.alt-brand-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.alt-meta {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding-top: 0.35rem;
+  text-align: right;
+}
+
+.logo-container {
+  width: min(32rem, 100%);
+  max-width: 100%;
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.alt-logo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-inline: auto;
+}
+
+.style-bakemono .logo-container {
+  width: min(16rem, 100%);
+  margin-inline: 0;
+  justify-self: start;
+}
+
+.alt-address {
+  margin: 0.2rem 0 0;
+  font-size: 1.26rem;
+  line-height: 1.3;
+}
+
+.alt-phone {
+  display: inline-block;
+  margin-top: 0.28rem;
+  font-size: 1rem;
+  line-height: 1.2;
+  text-decoration: none;
+}
+
+.alt-phone:hover,
+.alt-phone:focus-visible {
+  text-decoration: underline;
+}
+
+.style-akebono,
+.style-bakemono {
+  background: #000;
+  color: #fff;
+}
+
+.style-akebono {
+  --alt-secondary: #ff7518;
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
+}
+
+.style-bakemono {
+  --alt-secondary: #81903d;
+  font-family: "bakemono-variable", sans-serif;
+  font-weight: 400;
+  font-variation-settings: "wght" 400, "MONO" 0;
+}
+
+.style-akebono .band-titles h1,
+.style-akebono .section-head h2,
+.style-akebono .item-name,
+.style-akebono .price,
+.style-akebono .page-mark,
+.style-akebono .site-footer p {
+  font-family: "botanica-sans", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-synthesis: none;
+}
+
+.style-bakemono .band-titles h1,
+.style-bakemono .section-head h2,
+.style-bakemono .item-name,
+.style-bakemono .price,
+.style-bakemono .page-mark,
+.style-bakemono .site-footer p,
+.style-bakemono .alt-address,
+.style-bakemono .alt-phone {
+  font-family: "botanica-sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: normal;
+}
+
+.style-akebono .kicker,
+.style-akebono .section-en,
+.style-akebono .alt-address {
+  font-family: "sofia-pro-variable", sans-serif;
+  font-variation-settings: "slnt" 0;
+  font-weight: 400;
+}
+
+.style-bakemono .kicker,
+.style-bakemono .section-en {
+  font-family: "bakemono-variable", sans-serif;
+  font-weight: 400;
+  font-variation-settings: "wght" 400, "MONO" 0;
+}
+
+.style-akebono .kicker,
+.style-akebono .section-en,
+.style-akebono .desc-en,
+.style-akebono .alt-address,
+.style-akebono .alt-phone,
+.style-bakemono .kicker,
+.style-bakemono .section-en,
+.style-bakemono .desc-en,
+.style-bakemono .alt-address,
+.style-bakemono .alt-phone {
+  color: var(--alt-secondary);
+}
+
+.style-akebono .section-head h2,
+.style-akebono .item-name,
+.style-akebono .price,
+.style-akebono .page-mark,
+.style-akebono .band-titles h1,
+.style-akebono .desc-fr,
+.style-akebono .site-footer p,
+.style-bakemono .section-head h2,
+.style-bakemono .item-name,
+.style-bakemono .price,
+.style-bakemono .page-mark,
+.style-bakemono .band-titles h1,
+.style-bakemono .desc-fr,
+.style-bakemono .site-footer p {
+  color: #fff;
+}
+
+.style-akebono .section-head,
+.style-bakemono .section-head,
+.style-akebono .site-footer,
+.style-bakemono .site-footer {
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.style-akebono .item,
+.style-bakemono .item {
+  position: relative;
+}
+
+.style-akebono .item {
+  padding-left: 1.15rem;
+}
+
+.style-akebono .item-name {
+  position: relative;
+}
+
+.style-akebono .item-name::before {
+  content: "";
+  position: absolute;
+  left: -1.15rem;
+  top: calc(0.48rem - 0.15rem);
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.style-bakemono .item {
+  padding-left: 1.45rem;
+}
+
+.style-bakemono .item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.22rem;
+  width: 0.95rem;
+  height: 0.88rem;
+  background: url("assets/zero.png") center / contain no-repeat;
+}
+
+.style-akebono .item:focus-visible,
+.style-akebono .alt-phone:focus-visible,
+.style-bakemono .item:focus-visible,
+.style-bakemono .alt-phone:focus-visible {
+  outline-color: #fff;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .style-page {
+    transition: none;
   }
 }
