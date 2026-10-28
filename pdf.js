@@ -48,14 +48,15 @@
       stage.inert = true;
       document.body.appendChild(stage);
       var sheets = [];
-      try {
-        sheets = paginate(stage);
-      } catch (error) {
-        stage.remove();
-        throw error;
-      }
-      return platsImages().then(function () {
+      return menuImages().then(function () {
+        try {
+          sheets = paginate(stage);
+        } catch (error) {
+          stage.remove();
+          throw error;
+        }
         placePlatsPhotos(sheets);
+        placeYuzuPhoto(sheets);
         resolveSvgColors(stage);
         return rasterize(sheets);
       }).then(function () {
@@ -170,11 +171,32 @@
         currentRow = null;
       }
 
-      if (!currentRow || currentRow.children.length >= 2) {
+      var keepBeerRow = unit.beer && currentRow && currentRow.classList.contains("beer-row");
+      if (!keepBeerRow && (!currentRow || currentRow.children.length >= 2)) {
         currentRow = document.createElement("div");
         currentRow.className = "pdf-row";
         currentItems.appendChild(currentRow);
         created.push(currentRow);
+      }
+      if (unit.beer) {
+        if (!currentRow.classList.contains("beer-row")) {
+          currentRow.className = "pdf-row beer-row";
+          var left = document.createElement("div");
+          left.className = "item-slot beer-items";
+          var right = document.createElement("div");
+          right.className = "item-slot beer-photo-slot";
+          currentRow.appendChild(left);
+          currentRow.appendChild(right);
+          created.push(left);
+          created.push(right);
+          fillBeerPhotos(right);
+        }
+        var beerLeft = currentRow.querySelector(".beer-items");
+        var beerItem = prepareClone(unit.node);
+        beerLeft.appendChild(beerItem);
+        created.push(beerItem);
+        sizeBeerPhotos(currentRow);
+        return;
       }
       var slot = document.createElement("div");
       slot.className = "item-slot";
@@ -228,13 +250,30 @@
 
   function groupAt(units, start) {
     var group = [units[start]];
-    if (units[start].kind === "item") return group;
+    if (units[start].kind === "item") {
+      if (!units[start].beer) return group;
+      var beerIndex = start + 1;
+      while (beerIndex < units.length && units[beerIndex].kind === "item" && units[beerIndex].beer) {
+        group.push(units[beerIndex]);
+        beerIndex += 1;
+      }
+      return group;
+    }
     var j = start + 1;
     while (j < units.length && units[j].kind !== "item") {
       group.push(units[j]);
       j += 1;
     }
-    if (j < units.length) group.push(units[j]);
+    if (j < units.length) {
+      group.push(units[j]);
+      if (units[j].beer) {
+        j += 1;
+        while (j < units.length && units[j].kind === "item" && units[j].beer) {
+          group.push(units[j]);
+          j += 1;
+        }
+      }
+    }
     return group;
   }
 
@@ -251,7 +290,11 @@
           plats: section.classList.contains("plats")
         });
         section.querySelectorAll(":scope > .items > .item").forEach(function (item) {
-          units.push({ kind: "item", node: item });
+          units.push({
+            kind: "item",
+            node: item,
+            beer: section.classList.contains("bieres")
+          });
         });
       });
     });
@@ -332,16 +375,74 @@
     }
   }
 
-  function platsImages() {
-    var nodes = document.querySelectorAll(".plats .plats-photos img");
+  function menuImages() {
+    var nodes = document.querySelectorAll(".plats .plats-photos img, .bieres .beer-photos img, .sans-alcool .yuzu-photo img");
     return Promise.all(Array.prototype.map.call(nodes, function (img) {
       if (img.complete && img.naturalWidth) return Promise.resolve();
       if (img.decode) return img.decode();
       return new Promise(function (resolve, reject) {
         img.addEventListener("load", function () { resolve(); });
-        img.addEventListener("error", function () { reject(new Error("Image du plat introuvable")); });
+        img.addEventListener("error", function () { reject(new Error("Image du menu introuvable")); });
       });
     }));
+  }
+
+  function drawFitted(img, width, height) {
+    var scale = 2;
+    var canvas = document.createElement("canvas");
+    var w = Math.max(1, Math.round(width));
+    var h = Math.max(1, Math.round(height));
+    canvas.width = w * scale;
+    canvas.height = h * scale;
+    canvas.style.display = "block";
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+    canvas.getContext("2d").drawImage(img, 0, 0, canvas.width, canvas.height);
+    return canvas;
+  }
+
+  function fillBeerPhotos(slot) {
+    var sources = document.querySelectorAll(".bieres .beer-photos img");
+    if (sources.length < 2) return;
+    var row = document.createElement("div");
+    row.className = "pdf-beer-photos";
+    Array.prototype.forEach.call(sources, function (img) {
+      var height = 80;
+      var width = height * (img.naturalWidth / img.naturalHeight);
+      row.appendChild(drawFitted(img, width, height));
+    });
+    slot.appendChild(row);
+  }
+
+  function sizeBeerPhotos(row) {
+    var left = row.querySelector(".beer-items");
+    var right = row.querySelector(".beer-photo-slot");
+    var photos = right && right.querySelector(".pdf-beer-photos");
+    var sources = document.querySelectorAll(".bieres .beer-photos img");
+    if (!left || !photos || sources.length < 2) return;
+    var gap = parseFloat(window.getComputedStyle(photos).gap) || 0;
+    var avail = right.clientWidth;
+    var height = Math.round(left.getBoundingClientRect().height);
+    if (height < 1 || avail < 1) return;
+    function widthsFor(nextHeight) {
+      return Array.prototype.map.call(sources, function (img) {
+        return nextHeight * (img.naturalWidth / img.naturalHeight);
+      });
+    }
+    var widths = widthsFor(height);
+    var contentWidth = widths.reduce(function (sum, itemWidth) { return sum + itemWidth; }, 0);
+    var total = contentWidth + gap * (sources.length - 1);
+    if (total > avail && contentWidth > 0) {
+      height = Math.floor(height * ((avail - gap * (sources.length - 1)) / contentWidth));
+      widths = widthsFor(height);
+    }
+    if (height < 1) return;
+    var next = document.createElement("div");
+    next.className = "pdf-beer-photos";
+    Array.prototype.forEach.call(sources, function (img, index) {
+      next.appendChild(drawFitted(img, widths[index], height));
+    });
+    photos.replaceWith(next);
   }
 
   function coverCrop(img, width, height) {
@@ -479,6 +580,76 @@
       }
       paint(imageHeight);
     }
+  }
+
+  function placeYuzuPhoto(sheets) {
+    var source = document.querySelector(".sans-alcool .yuzu-photo img");
+    if (!source || !source.naturalWidth) return;
+    var aspect = source.naturalHeight / source.naturalWidth;
+    var yuzu = null;
+    var target = null;
+    sheets.forEach(function (sheet) {
+      var found = sheet.querySelector(".item-yuzu");
+      if (found) {
+        yuzu = found;
+        target = sheet;
+      }
+    });
+    if (!yuzu || !target) return;
+
+    var yuzuRow = yuzu.closest(".pdf-row");
+    var items = yuzu.closest(".items");
+    var body = target.querySelector(".pdf-sheet-body");
+    var menu = body && body.querySelector(".menu-body");
+    if (!yuzuRow || !items || !body || !menu) return;
+
+    var row = yuzuRow.nextElementSibling;
+    if (!row || !row.classList.contains("pdf-row") || row.parentNode !== items) {
+      row = document.createElement("div");
+      row.className = "pdf-row";
+      var spacer = document.createElement("div");
+      spacer.className = "item-slot";
+      row.appendChild(spacer);
+      items.appendChild(row);
+    }
+    if (row.querySelector(".yuzu-photo-slot")) return;
+    var slot = document.createElement("div");
+    slot.className = "item-slot yuzu-photo-slot";
+    row.appendChild(slot);
+
+    var slack = body.clientHeight - menu.offsetHeight;
+    var room = row.offsetHeight + Math.max(0, slack) - 8;
+    var maxWidth = slot.clientWidth;
+    if (maxWidth < 36 || room < 48) {
+      slot.remove();
+      return;
+    }
+
+    var height = Math.min(room, maxWidth * aspect);
+    var width = height / aspect;
+
+    function paint(nextWidth, nextHeight) {
+      var existing = slot.querySelector("canvas");
+      var canvas = drawFitted(source, nextWidth, nextHeight);
+      canvas.className = "pdf-yuzu-photo";
+      if (existing) slot.replaceChild(canvas, existing);
+      else slot.appendChild(canvas);
+    }
+
+    paint(width, height);
+    var guard = 0;
+    while (body.scrollHeight > body.clientHeight + 1 && height > 48 && guard < 8) {
+      var overflow = body.scrollHeight - body.clientHeight;
+      height = Math.max(48, height - overflow - 1);
+      width = height / aspect;
+      if (width > maxWidth) {
+        width = maxWidth;
+        height = width * aspect;
+      }
+      paint(width, height);
+      guard += 1;
+    }
+    if (body.scrollHeight > body.clientHeight + 1) slot.remove();
   }
 
   function createDocument() {
