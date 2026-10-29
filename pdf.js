@@ -625,7 +625,7 @@
       return;
     }
 
-    var height = Math.min(room, maxWidth * aspect);
+    var height = Math.min(room, maxWidth * aspect) * 2 / 3;
     var width = height / aspect;
 
     function paint(nextWidth, nextHeight) {
