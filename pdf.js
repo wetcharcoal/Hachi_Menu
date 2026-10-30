@@ -679,7 +679,7 @@
         });
         return window.html2canvas(sheet, {
           scale: 2,
-          backgroundColor: "#000000",
+          backgroundColor: "#4d544d",
           useCORS: true,
           logging: false,
           width: sheet.offsetWidth,
