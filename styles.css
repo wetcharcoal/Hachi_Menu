@@ -189,7 +189,8 @@ body {
   object-fit: cover;
 }
 
-.plats-photos figcaption {
+.plats-photos figcaption,
+.karaage-photo figcaption {
   margin: 0.28rem 0 0;
   font-family: "sofia-pro-variable", sans-serif;
   font-variation-settings: "slnt" 0;
@@ -198,6 +199,22 @@ body {
   line-height: 1.3;
   text-align: center;
   color: inherit;
+}
+
+.karaage-photo {
+  justify-self: center;
+  align-self: start;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+}
+
+.karaage-photo img {
+  display: block;
+  width: 62.5%;
+  height: auto;
+  margin-inline: auto;
 }
 
 .beer-photo-row {
@@ -217,7 +234,7 @@ body {
 
 .yuzu-photo {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin: 0;
 }
 
@@ -225,8 +242,23 @@ body {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(16rem, 72%);
-  max-height: calc(14rem * 2 / 3);
+  max-width: min(20rem, 100%);
+}
+
+.miso-photo {
+  justify-self: start;
+  align-self: start;
+  min-width: 0;
+  max-width: 100%;
+  margin: 0;
+}
+
+.miso-photo img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 8.5rem;
 }
 
 .item {
@@ -410,23 +442,54 @@ body {
     object-fit: contain;
   }
 
-  .style-page .sans-alcool .items {
-    position: relative;
+  .style-page .sans-alcool .items > .item {
+    grid-column: 1;
   }
 
   .style-page .sans-alcool .yuzu-photo {
-    position: absolute;
-    right: 0;
-    z-index: 1;
+    position: static;
+    grid-column: 2;
+    grid-row: 1 / span 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: stretch;
+    justify-self: stretch;
+    width: auto;
+    max-width: none;
+    min-width: 0;
+    min-height: 0;
     margin: 0;
+    overflow: hidden;
     pointer-events: none;
   }
 
   .style-page .sans-alcool .yuzu-photo img {
-    width: 100%;
+    width: auto;
     height: auto;
-    max-width: none;
-    max-height: none;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .soupe .item-onsen {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .soupe .item-riz {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .soupe .miso-photo {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .accompagnements .karaage-photo {
+    grid-column: 2;
+    grid-row: 3;
   }
 }
 
@@ -675,6 +738,12 @@ body {
 }
 
 .pdf-sheet {
+  --text: 1.02;
+  --section: calc(12 / var(--fr) * 1rem * var(--text));
+  --item: calc(11 / var(--fr) * 1rem * var(--text));
+  --price: calc(10 / var(--fr) * 1rem * var(--text));
+  --label-sm: calc(8 / var(--fr) * 1rem * var(--text));
+  --en: calc(7.7 / var(--fr) * 1rem * var(--text));
   position: relative;
   width: 8.5in;
   height: 11in;
@@ -683,6 +752,7 @@ body {
   overflow: hidden;
   background: #3e413c;
   color: #fff;
+  font-size: calc(1rem * var(--text));
 }
 
 .pdf-sheet .section-head h2 {
@@ -699,6 +769,10 @@ body {
   width: 100%;
   max-width: none;
   margin: 0;
+}
+
+.pdf-sheet .logo-container {
+  width: min(calc(32rem * 0.8), 80%);
 }
 
 .pdf-sheet-body {
@@ -782,16 +856,30 @@ body {
   cursor: default;
 }
 
-.pdf-sheet .pdf-plats-photos figure {
+.pdf-sheet .item-name {
+  white-space: nowrap;
+  min-width: max-content;
+}
+
+.pdf-sheet .pdf-plats-photos figure,
+.pdf-sheet .miso-photo-slot figure,
+.pdf-sheet .karaage-photo-slot figure {
   margin: 0;
-}
-
-.pdf-sheet .pdf-plats-photos canvas {
-  display: block;
   width: 100%;
+  min-width: 0;
 }
 
-.pdf-sheet .pdf-plats-photos figcaption {
+.pdf-sheet .pdf-plats-photos canvas,
+.pdf-sheet .pdf-miso-photo,
+.pdf-sheet .pdf-karaage-photo {
+  display: block;
+  max-width: 100%;
+  margin-inline: auto;
+}
+
+.pdf-sheet .pdf-plats-photos figcaption,
+.pdf-sheet .miso-photo-slot figcaption,
+.pdf-sheet .karaage-photo-slot figcaption {
   margin: 0.28rem 0 0;
   font-family: "sofia-pro-variable", sans-serif;
   font-variation-settings: "slnt" 0;
@@ -825,10 +913,23 @@ body {
   flex: 0 0 auto;
 }
 
+.pdf-sheet .pdf-soft-row {
+  display: flex;
+  align-items: center;
+}
+
+.pdf-sheet .pdf-soft-row > .item-slot {
+  float: none;
+}
+
+.pdf-sheet .soft-items .item + .item {
+  margin-top: 1.15rem;
+}
+
 .pdf-sheet .yuzu-photo-slot {
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .pdf-sheet .pdf-yuzu-photo {
@@ -836,7 +937,317 @@ body {
   flex: 0 0 auto;
 }
 
+.pdf-sheet .miso-photo-slot,
+.pdf-sheet .karaage-photo-slot {
+  display: block;
+}
+
+.pdf-sheet .pdf-miso-photo {
+  display: block;
+  flex: 0 0 auto;
+}
+
 .pdf-sheet .band.pdf-continued,
 .pdf-sheet .menu-section.pdf-continued {
   margin-top: 0;
+}
+
+.menu-choice {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  padding: 1.25rem;
+  background: rgba(0, 0, 0, 0.55);
+}
+
+.menu-choice[hidden] {
+  display: none;
+}
+
+.menu-choice-panel {
+  width: min(22rem, 100%);
+  padding: 1.35rem 1.25rem 1.2rem;
+  background: #3e413c;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.menu-choice-panel h2 {
+  margin: 0 0 1rem;
+  font-family: "gravita-geo-variable", sans-serif;
+  font-weight: 400;
+  font-variation-settings: "wght" 400;
+  font-size: 1.2rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+.menu-choice-actions {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.menu-choice-actions button {
+  padding: 0.7rem 0.9rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background: transparent;
+  color: #fff;
+  font: inherit;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.menu-choice-actions button:hover,
+.menu-choice-actions button:focus-visible {
+  background: #fff;
+  color: #111;
+}
+
+.menu-choice-actions button:focus-visible {
+  outline: 1px solid #fff;
+  outline-offset: 3px;
+}
+
+.pdf-sheet.pdf-compact {
+  --text: 0.96;
+}
+
+.pdf-sheet.pdf-light {
+  background: #fff;
+  color: #000;
+  --alt-secondary: #4E5A25;
+}
+
+.pdf-sheet.pdf-light .item-name::before {
+  background: #000;
+}
+
+.pdf-sheet.pdf-light .band-legend .legend-sep,
+.pdf-sheet.pdf-light .pdf-page-number,
+.pdf-sheet.pdf-light .pdf-plats-photos figcaption,
+.pdf-sheet.pdf-light .miso-photo-slot figcaption,
+.pdf-sheet.pdf-light .karaage-photo-slot figcaption {
+  color: #000;
+}
+
+.pdf-sheet.pdf-light .section-head,
+.pdf-sheet.pdf-light .site-footer {
+  border-color: rgba(0, 0, 0, 0.45);
+}
+
+.pdf-sheet.pdf-light .gluten {
+  color: #6B5344;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-text-brand {
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 0.12rem;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-text-brand.pdf-text-follow {
+  margin-bottom: 0.42in;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-text-brand .alt-logo {
+  width: 1.85in;
+  max-width: 46%;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-header-legend {
+  display: block;
+  width: auto;
+  margin: 0 0 0 auto;
+  text-align: right;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-header-legend li {
+  justify-content: flex-end;
+}
+
+.pdf-sheet.pdf-compact.pdf-text .pdf-header-legend li + li {
+  margin-top: 0.12rem;
+}
+
+.pdf-sheet.pdf-compact .pdf-compact-brand {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.22rem;
+  text-align: left;
+}
+
+.pdf-sheet.pdf-compact .pdf-compact-brand .alt-logo {
+  width: 2.45in;
+  max-width: 46%;
+  height: auto;
+  margin: 0;
+}
+
+.pdf-sheet.pdf-compact .pdf-brand-contact {
+  margin-left: auto;
+  text-align: right;
+}
+
+.pdf-sheet.pdf-compact .pdf-brand-contact .alt-address,
+.pdf-sheet.pdf-compact .pdf-brand-contact .alt-phone {
+  display: block;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.pdf-sheet.pdf-compact .pdf-brand-contact .alt-address {
+  font-size: calc(0.92rem * var(--text));
+}
+
+.pdf-sheet.pdf-compact .pdf-brand-contact .alt-phone {
+  margin-top: 0.1rem;
+  font-size: calc(0.85rem * var(--text));
+}
+
+.pdf-sheet.pdf-compact .menu-body > .band:first-child {
+  margin-top: 0;
+}
+
+.pdf-sheet.pdf-compact .band {
+  margin-top: 0.4rem;
+}
+
+.pdf-sheet.pdf-compact .band-head {
+  display: block;
+}
+
+.pdf-sheet.pdf-compact .band-legend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  margin: 0;
+}
+
+.pdf-sheet.pdf-compact .band-legend li {
+  align-items: center;
+}
+
+.pdf-sheet.pdf-compact .band-legend li + li {
+  margin-top: 0;
+}
+
+.pdf-sheet.pdf-compact .menu-section {
+  margin-top: 0.62rem;
+}
+
+.pdf-sheet.pdf-compact .section-head {
+  margin-bottom: 0.32rem;
+  padding-bottom: 0.16rem;
+}
+
+.pdf-sheet.pdf-compact .note {
+  margin-bottom: 0.32rem;
+}
+
+.pdf-sheet.pdf-compact .item .desc-fr {
+  margin-top: 0.1rem;
+}
+
+.pdf-sheet.pdf-compact .desc-en {
+  margin-top: 0.04rem;
+}
+
+.pdf-sheet.pdf-compact .pdf-row + .pdf-row,
+.pdf-sheet.pdf-compact .beer-items .item + .item,
+.pdf-sheet.pdf-compact .soft-items .item + .item {
+  margin-top: 0.46rem;
+}
+
+.pdf-sheet.pdf-compact .yuzu-photo-slot,
+.pdf-sheet.pdf-compact .pdf-photo-ume {
+  justify-content: flex-end;
+}
+
+.pdf-sheet.pdf-no-bullets .item {
+  padding-left: 0;
+}
+
+.pdf-sheet.pdf-no-bullets .item-name::before {
+  content: none;
+}
+
+.pdf-sheet.pdf-column .pdf-columns {
+  display: flex;
+  align-items: stretch;
+  gap: 0.38in;
+  margin-top: 0.28rem;
+}
+
+.pdf-sheet.pdf-column .pdf-col {
+  flex: 1 1 0;
+  width: 0;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.pdf-sheet.pdf-column .pdf-col > .band:first-child,
+.pdf-sheet.pdf-column .pdf-col > .band:first-child > .menu-section:first-child {
+  margin-top: 0;
+}
+
+.pdf-sheet.pdf-column .section-head {
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.04rem;
+}
+
+.pdf-sheet.pdf-column .section-head h2 {
+  flex: none;
+  min-width: 0;
+}
+
+.pdf-sheet.pdf-column .section-en {
+  margin: 0;
+  text-align: left;
+}
+
+.pdf-sheet.pdf-column .item-name {
+  min-width: 0;
+  white-space: normal;
+}
+
+.pdf-sheet.pdf-column .items > .item + .item,
+.pdf-sheet.pdf-column .items > .pdf-row,
+.pdf-sheet.pdf-column .items > .pdf-photo-block,
+.pdf-sheet.pdf-column .items > .pdf-beer-photos,
+.pdf-sheet.pdf-column .items > .miso-photo-slot,
+.pdf-sheet.pdf-column .items > .karaage-photo-slot,
+.pdf-sheet.pdf-column .items > .yuzu-photo-slot {
+  margin-top: 0.42rem;
+}
+
+.pdf-sheet.pdf-column .pdf-col .items > :first-child {
+  margin-top: 0;
+}
+
+.pdf-sheet.pdf-column .miso-photo-slot,
+.pdf-sheet.pdf-column .karaage-photo-slot {
+  display: flex;
+  justify-content: center;
+}
+
+.pdf-sheet.pdf-column .pdf-plats-photos .item-slot {
+  float: left;
+}
+
+.pdf-sheet.pdf-column .pdf-plats-photos .item-slot:first-child {
+  padding-right: 0.32rem;
+}
+
+.pdf-sheet.pdf-column .pdf-plats-photos .item-slot + .item-slot {
+  padding-left: 0.32rem;
 }

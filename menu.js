@@ -50,93 +50,49 @@
 
   var wideQuery = window.matchMedia("(min-width: 800px)");
 
-  function textEdge(el, edge) {
-    if (!el) return 0;
-    var range = document.createRange();
-    range.selectNodeContents(el);
-    var rects = range.getClientRects();
-    var value = 0;
-    for (var i = 0; i < rects.length; i++) {
-      if (rects[i][edge] > value) value = rects[i][edge];
-    }
-    return value;
-  }
-
-  function placeYuzu() {
-    var section = document.querySelector(".style-page .sans-alcool");
+  function placeMiso() {
+    var section = document.querySelector(".style-page .soupe");
     if (!section) return;
+    var photo = section.querySelector(".miso-photo");
+    var img = photo && photo.querySelector("img");
+    var riz = section.querySelector(".item-riz");
     var items = section.querySelector(":scope > .items");
-    var ume = section.querySelector(".item-ume");
-    var yuzu = section.querySelector(".item-yuzu");
-    var photo = section.querySelector(".yuzu-photo");
-    if (!items || !ume || !yuzu || !photo) return;
-    if (!wideQuery.matches) {
-      photo.style.top = "";
-      photo.style.width = "";
-      items.style.paddingBottom = "";
-      return;
+    if (!photo || !img || !riz || !items) return;
+
+    var height = Math.floor(riz.getBoundingClientRect().height) + 10;
+    if (height < 1) return;
+    var aspect = img.naturalWidth ? img.naturalWidth / img.naturalHeight : 570 / 547;
+    var width = Math.round(height * aspect);
+
+    var styles = window.getComputedStyle(items);
+    var gap = parseFloat(styles.columnGap) || 0;
+    var columns = wideQuery.matches ? 2 : 1;
+    var maxWidth = columns > 1 ? (items.clientWidth - gap) / columns : items.clientWidth;
+    if (maxWidth > 0 && width > maxWidth) {
+      width = Math.floor(maxWidth);
+      height = Math.floor(width / aspect);
     }
-    if (items.style.paddingBottom) items.style.paddingBottom = "";
+    if (height < 1 || width < 1) return;
 
-    var img = photo.querySelector("img");
-    var itemsRect = items.getBoundingClientRect();
-    var rightItem = ume.getBoundingClientRect().right >= yuzu.getBoundingClientRect().right ? ume : yuzu;
-    var desc = rightItem.querySelector(".desc-fr");
-    var descEn = rightItem.querySelector(".desc-en");
-    var descTop = desc.getBoundingClientRect().top;
-    var descBottom = Math.max(textEdge(desc, "bottom"), textEdge(descEn, "bottom"));
-    var contentBottom = itemsRect.top;
-    items.querySelectorAll(":scope > .item").forEach(function (item) {
-      var bottom = item.getBoundingClientRect().bottom;
-      if (bottom > contentBottom) contentBottom = bottom;
-    });
-    var aspect = img && img.naturalWidth ? img.naturalWidth / img.naturalHeight : 1080 / 932;
-    var maxWidth = rightItem.getBoundingClientRect().width;
-    var textLimit = Math.max(textEdge(desc, "right"), textEdge(descEn, "right"));
-    var priceBox = rightItem.querySelector(".price").getBoundingClientRect();
-
-    function fit(topEdge) {
-      var nextHeight = contentBottom - topEdge;
-      if (nextHeight < 1) return null;
-      var nextWidth = nextHeight * aspect;
-      if (nextWidth > maxWidth) {
-        nextWidth = maxWidth;
-        nextHeight = nextWidth / aspect;
-      }
-      return { top: topEdge - itemsRect.top, width: nextWidth, height: nextHeight };
-    }
-
-    function coversText(box) {
-      var left = itemsRect.right - box.width;
-      var top = itemsRect.top + box.top;
-      var hitsDesc = left < textLimit - 1 && top < descBottom - 1;
-      var hitsPrice = left < priceBox.right - 1 && top < priceBox.bottom - 1;
-      return hitsDesc || hitsPrice;
-    }
-
-    var placed = fit(descTop);
-    if (!placed || coversText(placed)) placed = fit(descBottom + 6);
-    if (!placed) return;
-    var top = placed.top;
-    var width = placed.width;
-    var nextWidth = Math.round(width) + "px";
-    var nextTop = Math.round(top) + "px";
-    if (photo.style.width !== nextWidth) photo.style.width = nextWidth;
-    if (photo.style.top !== nextTop) photo.style.top = nextTop;
+    var nextWidth = width + "px";
+    var nextHeight = height + "px";
+    if (img.style.width !== nextWidth) img.style.width = nextWidth;
+    if (img.style.height !== nextHeight) img.style.height = nextHeight;
+    if (img.style.maxHeight !== "none") img.style.maxHeight = "none";
   }
 
-  placeYuzu();
-  window.addEventListener("resize", placeYuzu);
+  placeMiso();
+  window.addEventListener("resize", placeMiso);
   if (typeof wideQuery.addEventListener === "function") {
-    wideQuery.addEventListener("change", placeYuzu);
+    wideQuery.addEventListener("change", placeMiso);
   }
   if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(placeYuzu);
+    document.fonts.ready.then(placeMiso);
   }
-  var yuzuImg = document.querySelector(".yuzu-photo img");
-  if (yuzuImg && !yuzuImg.complete) yuzuImg.addEventListener("load", placeYuzu);
-  var yuzuSection = document.querySelector(".sans-alcool");
-  if (yuzuSection && window.ResizeObserver) {
-    new ResizeObserver(placeYuzu).observe(yuzuSection);
+  var misoImg = document.querySelector(".miso-photo img");
+  if (misoImg && !misoImg.complete) misoImg.addEventListener("load", placeMiso);
+  var misoSection = document.querySelector(".soupe");
+  if (misoSection && window.ResizeObserver) {
+    new ResizeObserver(placeMiso).observe(misoSection);
   }
 }());

@@ -17,6 +17,18 @@
       <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 16.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5"/>
     </svg>
   </button>
+  <div class="menu-choice" hidden>
+    <div class="menu-choice-panel" role="dialog" aria-modal="true" aria-labelledby="menu-choice-title">
+      <h2 id="menu-choice-title">Télécharger le menu</h2>
+      <div class="menu-choice-actions">
+        <button type="button" data-menu-variant="expanded">Expanded</button>
+        <button type="button" data-menu-variant="condensed">Condensed</button>
+        <button type="button" data-menu-variant="column">Condensed column</button>
+        <button type="button" data-menu-variant="condensed-light">Condensed light</button>
+        <button type="button" data-menu-variant="condensed-light-text">Condensed light text</button>
+      </div>
+    </div>
+  </div>
   <div class="style-track">
     <article class="style-page style-akebono is-active" data-theme="dark">
   <svg xmlns="http://www.w3.org/2000/svg" class="leaf-defs" aria-hidden="true" focusable="false">
@@ -77,7 +89,7 @@
         </ul>
       </div>
 
-      <section class="menu-section" aria-labelledby="s1-soupe">
+      <section class="menu-section soupe" aria-labelledby="s1-soupe">
         <div class="section-head">
           <h2 id="s1-soupe">SOUPE ET SUPPLÉMENT</h2>
           <p class="section-en">SOUP &amp; EXTRA</p>
@@ -91,7 +103,7 @@
             <span class="desc-fr">Bouillon japonais au miso, doux et réconfortant</span>
             <span class="desc-en">Vegan Japanese miso soup</span>
           </button>
-          <button type="button" class="item" data-glow="meal">
+          <button type="button" class="item item-onsen" data-glow="meal">
             <span class="item-top">
               <span class="item-name">Œuf onsen</span>
               <span class="price">2 $</span>
@@ -99,7 +111,10 @@
             <span class="desc-fr">Œuf cuit lentement, au jaune crémeux et au blanc soyeux</span>
             <span class="desc-en">Slow-cooked egg with a creamy yolk and silky white</span>
           </button>
-          <button type="button" class="item" data-glow="meal">
+          <div class="miso-photo">
+            <img src="assets/miso_soup.png" alt="Soupe miso">
+          </div>
+          <button type="button" class="item item-riz" data-glow="meal">
             <span class="item-top">
               <span class="item-name">Riz supplémentaire<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
               <span class="price">5 $</span>
@@ -110,7 +125,7 @@
         </div>
       </section>
 
-      <section class="menu-section" aria-labelledby="s1-accompagnements">
+      <section class="menu-section accompagnements" aria-labelledby="s1-accompagnements">
         <div class="section-head">
           <h2 id="s1-accompagnements">ACCOMPAGNEMENTS</h2>
           <p class="section-en">SIDES</p>
@@ -148,6 +163,10 @@
             <span class="desc-fr">Salade garnie de poulet frit croustillant</span>
             <span class="desc-en">Salad with crispy Japanese fried chicken</span>
           </button>
+          <figure class="karaage-photo">
+            <img src="assets/karaage.png" alt="">
+            <figcaption>Poulet karaage</figcaption>
+          </figure>
           <button type="button" class="item" data-glow="meal">
             <span class="item-top">
               <span class="item-name">Frites/Frites Okonomi<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
@@ -272,7 +291,7 @@
           <button type="button" class="item" data-glow="drink">
             <span class="item-top">
               <span class="item-name">Amazake nature</span>
-              <span class="price">5 $</span>
+              <span class="price">6 $</span>
             </span>
             <span class="desc-fr">Boisson naturellement douce à base de riz fermenté, sans alcool</span>
             <span class="desc-en">Naturally sweet, non-alcoholic fermented rice drink</span>
@@ -280,7 +299,7 @@
           <button type="button" class="item item-yuzu" data-glow="drink">
             <span class="item-top">
               <span class="item-name">Nigori yuzu</span>
-              <span class="price">5 $</span>
+              <span class="price">6 $</span>
             </span>
             <span class="desc-fr">Boisson japonaise à la yuzu</span>
             <span class="desc-en">Japanese yuzu drink</span>
@@ -288,13 +307,13 @@
           <button type="button" class="item item-ume" data-glow="drink">
             <span class="item-top">
               <span class="item-name">Nigori Ume</span>
-              <span class="price">5 $</span>
+              <span class="price">6 $</span>
             </span>
             <span class="desc-fr">Boisson japonaise à la prune ume</span>
             <span class="desc-en">Japanese ume plum drink</span>
           </button>
           <div class="yuzu-photo">
-            <img src="assets/yuzu.png" alt="Nigori yuzu">
+            <img src="assets/sans.png" alt="Cans of non-alcoholic ume and yuzu">
           </div>
         </div>
       </section>
