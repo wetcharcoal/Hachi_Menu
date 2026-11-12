@@ -15,7 +15,8 @@
       if (!variant) return;
       button.disabled = true;
       button.setAttribute("aria-busy", "true");
-      buildPdf(variant).catch(function (error) {
+      var job = variant === "excel" ? downloadExcel() : buildPdf(variant);
+      job.catch(function (error) {
         console.error(error);
         window.alert("Le menu n'a pas pu être téléchargé.");
       }).then(function () {
@@ -95,6 +96,13 @@
       script.onerror = function () { reject(new Error("Chargement impossible : " + src)); };
       document.head.appendChild(script);
     });
+  }
+
+  function downloadExcel() {
+    if (typeof window.downloadMenuExcel !== "function") {
+      return Promise.reject(new Error("Export Excel indisponible"));
+    }
+    return window.downloadMenuExcel();
   }
 
   function filenameFor(variant) {

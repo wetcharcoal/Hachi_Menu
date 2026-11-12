@@ -10,6 +10,7 @@
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body class="is-dark">
+  <!--
   <button type="button" class="download-menu" aria-label="Télécharger le menu" title="Télécharger le menu">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
       <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5v10"/>
@@ -17,6 +18,7 @@
       <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 16.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5"/>
     </svg>
   </button>
+  -->
   <div class="menu-choice" hidden>
     <div class="menu-choice-panel" role="dialog" aria-modal="true" aria-labelledby="menu-choice-title">
       <h2 id="menu-choice-title">Télécharger le menu</h2>
@@ -26,6 +28,7 @@
         <button type="button" data-menu-variant="column">Condensed column</button>
         <button type="button" data-menu-variant="condensed-light">Condensed light</button>
         <button type="button" data-menu-variant="condensed-light-text">Condensed light text</button>
+        <button type="button" data-menu-variant="excel">Download Excel</button>
       </div>
     </div>
   </div>
@@ -345,6 +348,7 @@
   </div>
 
   <script src="menu.js"></script>
+  <script src="excel.js"></script>
   <script src="pdf.js"></script>
 </body>
 </html>

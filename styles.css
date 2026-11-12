@@ -242,7 +242,7 @@ body {
   display: block;
   width: auto;
   height: auto;
-  max-width: min(10rem, 50%);
+  max-width: min(10rem, 60%);
 }
 
 .miso-photo {
@@ -467,7 +467,7 @@ body {
   .style-page .sans-alcool .yuzu-photo img {
     width: auto;
     height: auto;
-    max-width: 50%;
+    max-width: 60%;
     max-height: 100%;
     object-fit: contain;
   }
