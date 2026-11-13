@@ -1,354 +1,141 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" data-lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hachi-Maru-Hachi</title>
   <link rel="stylesheet" href="https://use.typekit.net/jgl0cbu.css">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=footer2">
   <link rel="stylesheet" href="https://use.typekit.net/dgh7msb.css">
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
-<body class="is-dark">
-  <!--
-  <button type="button" class="download-menu" aria-label="Télécharger le menu" title="Télécharger le menu">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M12 3.5v10"/>
-      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="m7.5 10 4.5 4.5 4.5-4.5"/>
-      <path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 16.5V19a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5"/>
-    </svg>
-  </button>
-  -->
-  <div class="menu-choice" hidden>
-    <div class="menu-choice-panel" role="dialog" aria-modal="true" aria-labelledby="menu-choice-title">
-      <h2 id="menu-choice-title">Télécharger le menu</h2>
-      <div class="menu-choice-actions">
-        <button type="button" data-menu-variant="expanded">Expanded</button>
-        <button type="button" data-menu-variant="condensed">Condensed</button>
-        <button type="button" data-menu-variant="column">Condensed column</button>
-        <button type="button" data-menu-variant="condensed-light">Condensed light</button>
-        <button type="button" data-menu-variant="condensed-light-text">Condensed light text</button>
-        <button type="button" data-menu-variant="excel">Download Excel</button>
+<body>
+  <header class="site-header" id="top">
+    <a class="brand-link" href="index.html">
+      <img src="assets/logo_transparent_white_no_text.png" alt="Hachi Maru Hachi">
+    </a>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="menu.html">Menu</a>
+      <span class="nav-inactive" role="link" aria-disabled="true" data-i18n="nav.order">commander en ligne</span>
+      <a href="tel:+15142706666"><span data-i18n="nav.call">appel</span> · 514 · 270 · 6666</a>
+      <div class="lang-slider" data-lang="fr" role="group" aria-label="Language">
+        <button type="button" data-lang="fr" aria-pressed="true">fr</button>
+        <button type="button" data-lang="en" aria-pressed="false">en</button>
+      </div>
+    </nav>
+  </header>
+  <section class="hero">
+    <div class="hero-sign">
+      <img class="hero-mark" src="assets/0808.png" alt="">
+      <div class="hero-copy">
+        <p class="hero-name">
+          <span class="hero-word">HACHI</span>
+          <span class="hero-word">MARU</span>
+          <span class="hero-word">HACHI</span>
+        </p>
+        <p class="hero-cuisine">
+          <span class="hero-line" aria-hidden="true"></span>
+          <span class="hero-cuisine-text" data-i18n="hero.cuisine">cuisine Japonais</span>
+          <span class="hero-line" aria-hidden="true"></span>
+        </p>
+      </div>
+    </div>
+    <img class="hero-still" src="assets/sign_BIG_letters_transparent.png" alt="Hachi Maru Hachi, cuisine Japonais">
+  </section>
+
+  <main>
+    <section class="about" aria-labelledby="about-title">
+      <h2 id="about-title" class="about-title" data-i18n="about.title">Notre Resto</h2>
+      <div class="about-scroll">
+        <div class="about-sticky">
+          <article class="about-panel">
+            <div class="about-copy">
+              <h3>Umami &amp; Koji</h3>
+              <p data-i18n="about.koji.1">L'essence même de la cuisine japonaise réside dans une base d'umami prononcée. Nous nous approvisionnons auprès de producteurs locaux afin de vous proposer des ingrédients dignes d'un restaurant Michelin, qui enveloppent le palais d'une douce chaleur. Nous utilisons une grande variété d'ingrédients, en mettant l'accent sur le koji, un riz fermenté japonais, afin de faire ressortir le caractère raffiné de nos plats.</p>
+              <p data-i18n="about.koji.2">En plus d'utiliser le koji dans nos plats, nous l'intégrons également dans nos boissons, en associant les saveurs intenses de la cuisine japonaise à des rafraîchissements sucrés à base d'amazake.</p>
+            </div>
+            <img src="assets/koji.png" alt="Ceramic bowl filled with koji rice">
+          </article>
+          <article class="about-panel">
+            <div class="about-copy">
+              <h3><span data-i18n="about.vegan.title">Végétalien</span> <svg class="sprout" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 20V10"/><path fill="currentColor" d="M12 11c-1-4-5-6-8-5 1 4 4 6 8 5z"/><path fill="currentColor" d="M12 13c1-4 5-6 8-5-1 4-4 6-8 5z"/></svg></h3>
+              <p data-i18n="about.vegan.body">Notre maîtrise des ingrédients permet d'apporter à la cuisine végétalienne des saveurs umami intenses que l'on ne retrouve généralement que dans les plats à base de viande. Nous proposons des expériences japonaises uniques, que l'on ne trouve nulle part ailleurs sur l'île de Montréal.</p>
+            </div>
+            <img src="assets/curry.png" alt="Japanese vegetable curry with rice, eggplant, peppers, zucchini, and mushrooms">
+          </article>
+          <article class="about-panel">
+            <div class="about-copy">
+              <h3 data-i18n="about.price.title">Bonne cuisine japonaise à un prix raisonnable</h3>
+              <p data-i18n="about.price.body">Ces trois principes fondamentaux nous permettent d'allier les saveurs de la haute gastronomie et de la cuisine japonaise traditionnelle à un prix abordable. Les saveurs de la haute gastronomie ne sont pas nécessairement réservées à des assiettes onéreuses servies en petites portions.</p>
+            </div>
+            <img src="assets/mapo_nice.png" alt="Mapo tofu with rice, tofu, and herbs">
+          </article>
+        </div>
+      </div>
+      <div class="principles">
+        <img src="assets/venn.png" alt="Four overlapping circles labeled koji, umami, vegane, and bon prix, meeting at the Hachi Maru Hachi logo">
+        <p data-i18n="about.close">Ces quatre principes s'associent pour donner naissance à notre restaurant, Hachi Maru Hachi</p>
+      </div>
+    </section>
+
+    <section class="menu-promo" aria-labelledby="menu-promo-title">
+      <h2 id="menu-promo-title">Menu</h2>
+      <span class="menu-promo-line" aria-hidden="true"></span>
+      <a class="explore-menu" href="menu.html" data-i18n="menu.explore">découvrir le menu</a>
+    </section>
+
+    <section class="visit" aria-labelledby="visit-title">
+      <div class="visit-copy">
+        <h2 id="visit-title" data-i18n="visit.title">Venez nous rendre visite</h2>
+        <a class="visit-address" href="https://www.google.com/maps/search/?api=1&amp;query=808+Jean-Talon+Ouest,+Montreal">808 Jean Talon Ouest</a>
+        <a class="visit-phone" href="tel:+15142706666">514 · 270 · 6666</a>
+      </div>
+      <div class="visit-map">
+        <iframe
+          title="Map of Hachi Maru Hachi at 808 Jean-Talon Ouest, Montréal"
+          src="https://maps.google.com/maps?q=808+Jean-Talon+Ouest,+Montreal&amp;z=16&amp;output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="home-footer">
+    <div class="footer-columns">
+      <a class="footer-brand" href="#top">
+        <img src="assets/logo_transparent_white.png" alt="Hachi Maru Hachi">
+      </a>
+      <nav class="footer-col" aria-labelledby="footer-home">
+        <h2 id="footer-home" data-i18n="footer.home">ACCUEIL</h2>
+        <a href="#top" data-i18n="footer.restaurant">Notre resto</a>
+        <a href="menu.html">menu</a>
+        <span class="nav-inactive" data-i18n="footer.order">commander en ligne</span>
+      </nav>
+      <div class="footer-col">
+        <h2 data-i18n="footer.contact">CONTACT</h2>
+        <a href="https://www.google.com/maps/search/?api=1&amp;query=808+Jean-Talon+Ouest,+Montreal">808 Jean Talon Ouest</a>
+        <a href="tel:+15142706666">514 · 270 · 6666</a>
+        <a class="footer-instagram" href="https://www.instagram.com/hachi.maru.hachi.mtl/" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="17.15" cy="6.85" r="0.95" fill="currentColor"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <div class="leave-dialog" hidden>
+    <div class="leave-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="leave-title">
+      <h2 id="leave-title" data-i18n="leave.message">Vous êtes sur le point de quitter cette page. Voulez-vous continuer ?</h2>
+      <div class="leave-dialog-actions">
+        <button type="button" data-leave="confirm" data-i18n="leave.yes">oui</button>
+        <button type="button" data-leave="cancel" data-i18n="leave.no">non</button>
       </div>
     </div>
   </div>
-  <div class="style-track">
-    <article class="style-page style-akebono is-active" data-theme="dark">
-  <svg xmlns="http://www.w3.org/2000/svg" class="leaf-defs" aria-hidden="true" focusable="false">
-    <symbol id="leaf" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 20V10"/>
-      <path fill="currentColor" d="M12 11c-1-4-5-6-8-5 1 4 4 6 8 5z"/>
-      <path fill="currentColor" d="M12 13c1-4 5-6 8-5-1 4-4 6-8 5z"/> 
-      <!--
-      /*<path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" d="M5 19c2.2-6.2 5.4-10.2 14-14-1.2 8.2-5.2 13.2-12.2 15.2"/>
-      <path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M9.2 14.2c1.8-1.2 3.8-3.2 5.6-6"/>
-      -->
-    </symbol>
-    <symbol id="wheat-head" viewBox="0 0 24 24">
-      <ellipse cx="12" cy="5.55" rx="1.2" ry="1.85" fill="currentColor"/>
-      <ellipse cx="10.45" cy="8.35" rx="1.05" ry="1.75" fill="currentColor" transform="rotate(-32 10.45 8.35)"/>
-      <ellipse cx="13.55" cy="8.35" rx="1.05" ry="1.75" fill="currentColor" transform="rotate(32 13.55 8.35)"/>
-      <ellipse cx="10.2" cy="11.45" rx="1.05" ry="1.8" fill="currentColor" transform="rotate(-40 10.2 11.45)"/>
-      <ellipse cx="13.8" cy="11.45" rx="1.05" ry="1.8" fill="currentColor" transform="rotate(40 13.8 11.45)"/>
-      <ellipse cx="10.55" cy="14.45" rx="0.98" ry="1.65" fill="currentColor" transform="rotate(-50 10.55 14.45)"/>
-      <ellipse cx="13.45" cy="14.45" rx="0.98" ry="1.65" fill="currentColor" transform="rotate(50 13.45 14.45)"/>
-    </symbol>
-    <symbol id="wheat-ear" viewBox="0 0 24 24">
-      <path fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" d="M12 20.7V7.6"/>
-      <use href="#wheat-head"/>
-    </symbol>
-    <symbol id="gluten" viewBox="0 0 24 24">
-      <g transform="translate(0 0.7) translate(12 12) scale(0.838) translate(-12 -12)">
-        <use href="#wheat-ear"/>
-        <path fill="none" stroke="#E23B3B" stroke-width="1.8" stroke-linecap="round" d="M4.4 18.6 19.6 5.4"/>
-      </g>
-    </symbol>
-  </svg>
-      <header class="alt-brand alt-brand-center">
-        <div class="logo-container">
-          <img class="alt-logo" src="assets/logo.png" alt="Hachi Maru Hachi">
-        </div>
-        <p class="alt-address">808 rue Jean-Talon Ouest · Montréal</p>
-        <a class="alt-phone" href="tel:+15142706666">514 · 270 · 6666</a>
-      </header>
-      <div class="menu-body">
-    <section class="band">
-      <div class="band-head">
-        <ul class="band-legend">
-          <li>
-            <svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg>
-            <span class="legend-sep" aria-hidden="true">·</span>
-            <span class="desc-fr">végétalienne</span>
-            <span class="legend-sep" aria-hidden="true">·</span>
-            <span class="desc-en">vegan</span>
-          </li>
-          <li>
-            <svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg>
-            <span class="legend-sep" aria-hidden="true">·</span>
-            <span class="desc-fr">sans gluten</span>
-            <span class="legend-sep" aria-hidden="true">·</span>
-            <span class="desc-en">gluten free</span>
-          </li>
-        </ul>
-      </div>
 
-      <section class="menu-section soupe" aria-labelledby="s1-soupe">
-        <div class="section-head">
-          <h2 id="s1-soupe">SOUPE ET SUPPLÉMENT</h2>
-          <p class="section-en">SOUP &amp; EXTRA</p>
-        </div>
-        <div class="items">
-          <button type="button" class="item" data-glow="salad">
-            <span class="item-top">
-              <span class="item-name">Soupe miso végétalienne<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">5 $</span>
-            </span>
-            <span class="desc-fr">Bouillon japonais au miso, doux et réconfortant</span>
-            <span class="desc-en">Vegan Japanese miso soup</span>
-          </button>
-          <button type="button" class="item item-onsen" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Œuf onsen</span>
-              <span class="price">2 $</span>
-            </span>
-            <span class="desc-fr">Œuf cuit lentement, au jaune crémeux et au blanc soyeux</span>
-            <span class="desc-en">Slow-cooked egg with a creamy yolk and silky white</span>
-          </button>
-          <div class="miso-photo">
-            <img src="assets/miso_soup.png" alt="Soupe miso">
-          </div>
-          <button type="button" class="item item-riz" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Riz supplémentaire<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">5 $</span>
-            </span>
-            <span class="desc-fr">Portion de riz blanc</span>
-            <span class="desc-en">Extra steamed rice</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="menu-section accompagnements" aria-labelledby="s1-accompagnements">
-        <div class="section-head">
-          <h2 id="s1-accompagnements">ACCOMPAGNEMENTS</h2>
-          <p class="section-en">SIDES</p>
-        </div>
-        <div class="items">
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Poulet karaage</span>
-              <span class="price">10 $</span>
-            </span>
-            <span class="desc-fr">Poulet frit japonais, mayonnaise aioli; 5 ou 4 gros</span>
-            <span class="desc-en">Japanese fried chicken with aioli mayo; 5 or 4 large</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Nasu agebitashi<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">8 $</span>
-            </span>
-            <span class="desc-fr">Aubergine frite, marinée dans un bouillon, avec daikon et oignons verts</span>
-            <span class="desc-en">Fried eggplant in savoury broth, served with daikon and green onions</span>
-          </button>
-          <button type="button" class="item" data-glow="salad">
-            <span class="item-top">
-              <span class="item-name">Mini salade<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg><svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">5 $</span>
-            </span>
-            <span class="desc-fr">Petite salade fraîche</span>
-            <span class="desc-en">Small fresh salad</span>
-          </button>
-          <button type="button" class="item" data-glow="salad">
-            <span class="item-top">
-              <span class="item-name">Salade au karaage</span>
-              <span class="price">11 $</span>
-            </span>
-            <span class="desc-fr">Salade garnie de poulet frit croustillant</span>
-            <span class="desc-en">Salad with crispy Japanese fried chicken</span>
-          </button>
-          <figure class="karaage-photo">
-            <img src="assets/karaage.png" alt="">
-            <figcaption>Poulet karaage</figcaption>
-          </figure>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Frites/Frites Okonomi<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">5 / 7 $</span>
-            </span>
-            <span class="desc-fr">Frites (végétalienne) ou frites Japonaise (non végétalienne)</span>
-            <span class="desc-en">Fries (vegan) or Japanese-style fries (not vegan)</span>
-          </button>
-        </div>
-      </section>
-
-      <section class="menu-section plats" aria-labelledby="s1-plats">
-        <div class="section-head">
-          <h2 id="s1-plats">PLATS PRINCIPAUX</h2>
-          <p class="section-en">MAIN DISHES</p>
-        </div>
-        <div class="items">
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Udon au kakiage<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">15 / 17 $</span>
-            </span>
-            <span class="desc-fr">Nouilles udon et tempura croustillant de légumes; végétalien, ou bien calmar et crevettes (+ 2 $)</span>
-            <span class="desc-en">Udon noodles with crispy vegetable tempura; vegan, or squid and shrimp (+ $2)</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Udon au curry<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">16 / 18 $</span>
-            </span>
-            <span class="desc-fr">Nouilles udon dans un bouillon au curry; végétalien ou au poulet (+ 2 $)</span>
-            <span class="desc-en">Udon noodles in curry broth; vegan or chicken (+ $2)</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Mapo tofu<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">16 $</span>
-            </span>
-            <span class="desc-fr">Du tofu dans une sauce japonaise d'inspiration sichuanaise, épicée et savoureuse</span>
-            <span class="desc-en">Tofu in a szechuan inspired Japanese sauce, spicy and flavorful</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Curry japonais<svg class="leaf" aria-hidden="true" focusable="false"><use href="#leaf"/></svg></span>
-              <span class="price">15 $</span>
-            </span>
-            <span class="desc-fr">Curry doux servi avec du riz; végétalien ou au poulet</span>
-            <span class="desc-en">Mild curry with rice; vegan or chicken</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Gyudon<svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">16 $</span>
-            </span>
-            <span class="desc-fr">Bol de riz au bœuf mijoté dans une sauce japonaise légèrement sucrée</span>
-            <span class="desc-en">Rice bowl with beef simmered in a lightly sweet Japanese sauce</span>
-          </button>
-          <button type="button" class="item" data-glow="meal">
-            <span class="item-top">
-              <span class="item-name">Oyakodon<svg class="gluten" aria-hidden="true" focusable="false"><use href="#gluten"/></svg></span>
-              <span class="price">16 $</span>
-            </span>
-            <span class="desc-fr">Bol de riz au poulet et à l’œuf tendre dans un sauce savoureux</span>
-            <span class="desc-en">Rice bowl with chicken and soft egg in a savoury sauce</span>
-          </button>
-          <div class="plats-photos">
-            <figure>
-              <img src="assets/Mapo.png" alt="">
-              <figcaption>Mapo tofu</figcaption>
-            </figure>
-            <figure>
-              <img src="assets/Udon.png" alt="">
-              <figcaption>Udon au kakiage</figcaption>
-            </figure>
-          </div>
-        </div>
-      </section>
-    </section>
-
-    <section class="band">
-      <section class="menu-section bieres" aria-labelledby="s1-bieres">
-        <div class="section-head">
-          <h2 id="s1-bieres">BIÈRES JAPONAISES AU KOJI</h2>
-          <p class="section-en">JAPANESE KOJI BEERS</p>
-        </div>
-        <p class="note">
-          <span class="desc-fr">Bières brassées avec du koji, un ferment traditionnel japonais qui enrichit les arômes</span>
-          <span class="desc-en">Beers brewed with koji, a traditional Japanese fermentation culture</span>
-        </p>
-        <div class="items">
-          <button type="button" class="item" data-glow="beer">
-            <span class="item-top">
-              <span class="item-name">Cardamom Masüm lager</span>
-              <span class="price">6 $</span>
-            </span>
-            <span class="desc-fr">Lager au koji et à la cardamome</span>
-            <span class="desc-en">Koji lager with cardamom</span>
-          </button>
-          <button type="button" class="item" data-glow="beer">
-            <span class="item-top">
-              <span class="item-name">Suzuki IPA</span>
-              <span class="price">7 $</span>
-            </span>
-            <span class="desc-fr">IPA japonaise brassée avec du koji</span>
-            <span class="desc-en">Japanese-style IPA brewed with koji</span>
-          </button>
-          <div class="beer-photos">
-            <div class="beer-photo-row">
-              <img src="assets/masum.png" alt="Cardamom Masüm lager">
-              <img src="assets/suzuki.png" alt="Suzuki IPA">
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="menu-section sans-alcool" aria-labelledby="s1-sans-alcool">
-        <div class="section-head">
-          <h2 id="s1-sans-alcool">BOISSONS SANS ALCOOL</h2>
-          <p class="section-en">NON-ALCOHOLIC DRINKS</p>
-        </div>
-        <div class="items">
-          <button type="button" class="item" data-glow="drink">
-            <span class="item-top">
-              <span class="item-name">Amazake nature</span>
-              <span class="price">6 $</span>
-            </span>
-            <span class="desc-fr">Boisson naturellement douce à base de riz fermenté, sans alcool</span>
-            <span class="desc-en">Naturally sweet, non-alcoholic fermented rice drink</span>
-          </button>
-          <button type="button" class="item item-yuzu" data-glow="drink">
-            <span class="item-top">
-              <span class="item-name">Nigori yuzu</span>
-              <span class="price">6 $</span>
-            </span>
-            <span class="desc-fr">Boisson japonaise à la yuzu</span>
-            <span class="desc-en">Japanese yuzu drink</span>
-          </button>
-          <button type="button" class="item item-ume" data-glow="drink">
-            <span class="item-top">
-              <span class="item-name">Nigori Ume</span>
-              <span class="price">6 $</span>
-            </span>
-            <span class="desc-fr">Boisson japonaise à la prune ume</span>
-            <span class="desc-en">Japanese ume plum drink</span>
-          </button>
-          <div class="yuzu-photo">
-            <img src="assets/sans.png" alt="Cans of non-alcoholic ume and yuzu">
-          </div>
-        </div>
-      </section>
-
-      <section class="menu-section" aria-labelledby="s1-chaudes">
-        <div class="section-head">
-          <h2 id="s1-chaudes">BOISSONS CHAUDES</h2>
-          <p class="section-en">HOT DRINKS</p>
-        </div>
-        <div class="items">
-          <button type="button" class="item" data-glow="drink">
-            <span class="item-top">
-              <span class="item-name">Sencha</span>
-              <span class="price">3,50 $</span>
-            </span>
-            <span class="desc-fr">Thé chaud vert</span>
-            <span class="desc-en">Hot green tea</span>
-          </button>
-        </div>
-      </section>
-    </section>
-      </div>
-  <footer class="site-footer">
-    <p class="footer-name">HACHI-MARU-HACHI</p>
-    <a class="footer-phone" href="tel:+15142706666">514 · 270 · 6666</a>
-    <p class="footer-address">808 rue Jean-Talon Ouest</p>
-  </footer>
-    </article>
-  </div>
-
-  <script src="menu.js"></script>
-  <script src="excel.js"></script>
-  <script src="pdf.js"></script>
+  <script src="home.js?v=footer1"></script>
 </body>
 </html>

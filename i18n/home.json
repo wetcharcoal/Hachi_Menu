@@ -1,0 +1,82 @@
+{
+  "hero.cuisine": {
+    "fr": "cuisine Japonais",
+    "en": "Japanese Cuisine"
+  },
+  "about.title": {
+    "fr": "Notre Resto",
+    "en": "Our Restaurant"
+  },
+  "about.koji.1": {
+    "fr": "L'essence même de la cuisine japonaise réside dans une base d'umami prononcée. Nous nous approvisionnons auprès de producteurs locaux afin de vous proposer des ingrédients dignes d'un restaurant Michelin, qui enveloppent le palais d'une douce chaleur. Nous utilisons une grande variété d'ingrédients, en mettant l'accent sur le koji, un riz fermenté japonais, afin de faire ressortir le caractère raffiné de nos plats.",
+    "en": "The core of Japanese cooking is a strong umami base. We source from local producers to provide you with michelin-quality ingredients that coat the palette in a warm hug. We use a variety of ingredients with a focus on koji, a japanese fermented rice, to bring out a refined character in our food."
+  },
+  "about.koji.2": {
+    "fr": "En plus d'utiliser le koji dans nos plats, nous l'intégrons également dans nos boissons, en associant les saveurs intenses de la cuisine japonaise à des rafraîchissements sucrés à base d'amazake.",
+    "en": "In addition to using koji in our food, we also include it in our beverages, pairing rich japanese flavours with sweet amazake-based refreshments"
+  },
+  "about.vegan.title": {
+    "fr": "Végétalien",
+    "en": "Vegan"
+  },
+  "about.vegan.body": {
+    "fr": "Notre maîtrise des ingrédients permet d'apporter à la cuisine végétalienne des saveurs umami intenses que l'on ne retrouve généralement que dans les plats à base de viande. Nous proposons des expériences japonaises uniques, que l'on ne trouve nulle part ailleurs sur l'île de Montréal.",
+    "en": "Our proficient use of ingredients provides rich umami flavours to vegan cuisine that are often only found in meat-based dishes. We create unique Japanese experiences found nowhere else on the island of Montréal."
+  },
+  "about.price.title": {
+    "fr": "Bonne cuisine japonaise à un prix raisonnable",
+    "en": "Good Japanese food at a good price"
+  },
+  "about.price.body": {
+    "fr": "Ces trois principes fondamentaux nous permettent d'allier les saveurs de la haute gastronomie et de la cuisine japonaise traditionnelle à un prix abordable. Les saveurs de la haute gastronomie ne sont pas nécessairement réservées à des assiettes onéreuses servies en petites portions.",
+    "en": "These three core tenets allow us to marry the flavours of fine dining and classic Japanese cuisine at a good price. The flavours of fine dining do not have to be exclusive to pricey plates with small portion sizes."
+  },
+  "about.close": {
+    "fr": "Ces quatre principes s'associent pour donner naissance à notre restaurant, Hachi Maru Hachi",
+    "en": "All four of these principles come together to form our restaurant, Hachi Maru Hachi"
+  },
+  "menu.explore": {
+    "fr": "découvrir le menu",
+    "en": "explore the menu"
+  },
+  "visit.title": {
+    "fr": "Venez nous rendre visite",
+    "en": "Come visit us"
+  },
+  "nav.order": {
+    "fr": "commander en ligne",
+    "en": "Order online"
+  },
+  "nav.call": {
+    "fr": "appel",
+    "en": "Call us"
+  },
+  "footer.home": {
+    "fr": "ACCUEIL",
+    "en": "HOME"
+  },
+  "footer.restaurant": {
+    "fr": "Notre resto",
+    "en": "Our Restaurant"
+  },
+  "footer.order": {
+    "fr": "commander en ligne",
+    "en": "order online"
+  },
+  "footer.contact": {
+    "fr": "CONTACT",
+    "en": "CONTACT"
+  },
+  "leave.message": {
+    "fr": "Vous êtes sur le point de quitter cette page. Voulez-vous continuer ?",
+    "en": "You are about to leave this page, continue?"
+  },
+  "leave.yes": {
+    "fr": "oui",
+    "en": "yes"
+  },
+  "leave.no": {
+    "fr": "non",
+    "en": "no"
+  }
+}
