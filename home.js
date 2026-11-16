@@ -88,7 +88,8 @@
     pendingTrigger = trigger;
     leaveDialog.hidden = false;
     document.body.classList.add("has-leave-dialog");
-    leaveConfirm.focus();
+    var panel = leaveDialog.querySelector(".leave-dialog-panel");
+    if (panel) panel.focus();
   }
 
   document.addEventListener("click", function (event) {
@@ -124,8 +125,11 @@
       if (event.key !== "Tab" || !leaveConfirm || !leaveCancel) return;
       var nodes = [leaveConfirm, leaveCancel];
       var index = nodes.indexOf(document.activeElement);
-      if (index === -1) return;
       event.preventDefault();
+      if (index === -1) {
+        (event.shiftKey ? leaveCancel : leaveConfirm).focus();
+        return;
+      }
       var next = event.shiftKey ? (index + nodes.length - 1) % nodes.length : (index + 1) % nodes.length;
       nodes[next].focus();
     });

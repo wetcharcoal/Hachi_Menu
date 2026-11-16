@@ -1885,6 +1885,10 @@ body.has-leave-dialog {
   text-align: center;
 }
 
+.leave-dialog-panel:focus {
+  outline: none;
+}
+
 .leave-dialog-panel h2 {
   margin: 0 0 1.35rem;
   font-family: "sofia-pro-variable", sans-serif;
@@ -1912,7 +1916,8 @@ body.has-leave-dialog {
 }
 
 .leave-dialog-actions button:hover {
-  background: #fff;
+  border-color: #9CB349;
+  background: #9CB349;
   color: #3e413c;
 }
 
