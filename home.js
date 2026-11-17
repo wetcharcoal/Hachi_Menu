@@ -1,12 +1,11 @@
 (function () {
-  var header = document.querySelector(".site-header");
-  var slider = document.querySelector(".lang-slider");
   var aboutScroll = document.querySelector(".about-scroll");
   var panels = aboutScroll ? Array.prototype.slice.call(aboutScroll.querySelectorAll(".about-panel")) : [];
   var promo = document.querySelector(".menu-promo");
   var motionQuery = window.matchMedia("(min-width: 800px) and (prefers-reduced-motion: no-preference)");
 
   function setHeaderHeight() {
+    var header = document.querySelector(".site-header");
     if (!header) return;
     document.documentElement.style.setProperty("--site-header", header.offsetHeight + "px");
   }
@@ -28,6 +27,7 @@
     document.documentElement.lang = activeLang;
     document.documentElement.setAttribute("data-lang", activeLang);
     applyCopy(activeLang);
+    var slider = document.querySelector(".lang-slider");
     if (!slider) return;
     slider.setAttribute("data-lang", activeLang);
     Array.prototype.forEach.call(slider.querySelectorAll("button"), function (button) {
@@ -36,7 +36,7 @@
     });
   }
 
-  fetch("i18n/home.json")
+  fetch("/i18n/home.json")
     .then(function (response) {
       if (!response.ok) throw new Error("translations");
       return response.json();
@@ -46,13 +46,20 @@
       applyCopy(activeLang);
     });
 
-  if (slider) {
-    slider.addEventListener("click", function (event) {
-      var button = event.target.closest("button");
-      if (!button || !slider.contains(button)) return;
-      setLanguage(button.getAttribute("data-lang") || "fr");
-    });
-  }
+  document.addEventListener("site-footer-ready", function () {
+    applyCopy(activeLang);
+  });
+
+  document.addEventListener("site-header-ready", function () {
+    setHeaderHeight();
+    setLanguage(activeLang);
+  });
+
+  document.addEventListener("click", function (event) {
+    var button = event.target.closest(".lang-slider button");
+    if (!button) return;
+    setLanguage(button.getAttribute("data-lang") || "fr");
+  });
 
   var leaveDialog = document.querySelector(".leave-dialog");
   var leaveConfirm = leaveDialog ? leaveDialog.querySelector("[data-leave='confirm']") : null;

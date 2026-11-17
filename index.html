@@ -5,25 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Hachi-Maru-Hachi</title>
   <link rel="stylesheet" href="https://use.typekit.net/jgl0cbu.css">
-  <link rel="stylesheet" href="styles.css?v=leave-hover">
+  <link rel="stylesheet" href="styles.css?v=header-line">
   <link rel="stylesheet" href="https://use.typekit.net/dgh7msb.css">
   <link rel="icon" href="assets/favicon.png" type="image/png">
 </head>
 <body>
-  <header class="site-header" id="top">
-    <a class="brand-link" href="index.html">
-      <img src="assets/logo_transparent_white_no_text.png" alt="Hachi Maru Hachi">
-    </a>
-    <nav class="site-nav" aria-label="Primary">
-      <a href="menu.html">Menu</a>
-      <a href="https://www.ubereats.com/ca/store/hachi-maru-hachi/fP2zSnvMUbW5J2AwaCITig?diningMode=DELIVERY&amp;pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMjg0NzglMjBSdWUlMjBEcm9sZXQlMjIlMkMlMjJyZWZlcmVuY2UlMjIlM0ElMjJhNmU1YmUwMS1lMmQ3LWFiYjgtMmQzNS04MTU2N2JiNjgxMWQlMjIlMkMlMjJyZWZlcmVuY2VUeXBlJTIyJTNBJTIydWJlcl9wbGFjZXMlMjIlMkMlMjJsYXRpdHVkZSUyMiUzQTQ1LjU0MzQzOCUyQyUyMmxvbmdpdHVkZSUyMiUzQS03My42MzU3MjI3JTdE" data-i18n="nav.order">commander en ligne</a>
-      <a href="tel:+15142706666"><span data-i18n="nav.call">appel</span> · 514 · 270 · 6666</a>
-      <div class="lang-slider" data-lang="fr" role="group" aria-label="Language">
-        <button type="button" data-lang="fr" aria-pressed="true">fr</button>
-        <button type="button" data-lang="en" aria-pressed="false">en</button>
-      </div>
-    </nav>
-  </header>
+  <div data-site-header></div>
   <section class="hero">
     <div class="hero-sign">
       <img class="hero-mark" src="assets/0808.png" alt="">
@@ -81,7 +68,7 @@
     <section class="menu-promo" aria-labelledby="menu-promo-title">
       <h2 id="menu-promo-title">Menu</h2>
       <span class="menu-promo-line" aria-hidden="true"></span>
-      <a class="explore-menu" href="menu.html" data-i18n="menu.explore">découvrir le menu</a>
+      <a class="explore-menu" href="/menu" data-i18n="menu.explore">découvrir le menu</a>
     </section>
 
     <section class="visit" aria-labelledby="visit-title">
@@ -100,31 +87,7 @@
     </section>
   </main>
 
-  <footer class="home-footer">
-    <div class="footer-columns">
-      <a class="footer-brand" href="#top">
-        <img src="assets/logo_transparent_white.png" alt="Hachi Maru Hachi">
-      </a>
-      <nav class="footer-col" aria-labelledby="footer-home">
-        <h2 id="footer-home" data-i18n="footer.home">ACCUEIL</h2>
-        <a href="#top" data-i18n="footer.restaurant">Notre resto</a>
-        <a href="menu.html">menu</a>
-        <span class="nav-inactive" data-i18n="footer.order">commander en ligne</span>
-      </nav>
-      <div class="footer-col">
-        <h2 data-i18n="footer.contact">CONTACT</h2>
-        <a href="https://www.google.com/maps/search/?api=1&amp;query=808+Jean-Talon+Ouest,+Montreal">808 Jean Talon Ouest</a>
-        <a href="tel:+15142706666">514 · 270 · 6666</a>
-        <a class="footer-instagram" href="https://www.instagram.com/hachi.maru.hachi.mtl/" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="12" cy="12" r="4.1" fill="none" stroke="currentColor" stroke-width="1.6"/>
-            <circle cx="17.15" cy="6.85" r="0.95" fill="currentColor"/>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </footer>
+  <div data-site-footer></div>
 
   <div class="leave-dialog" hidden>
     <div class="leave-dialog-panel" role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="leave-title">
@@ -136,6 +99,8 @@
     </div>
   </div>
 
-  <script src="home.js?v=leave-hover"></script>
+  <script src="/header.js?v=shared1"></script>
+  <script src="/footer.js?v=shared1"></script>
+  <script src="home.js?v=header-shared"></script>
 </body>
 </html>

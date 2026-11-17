@@ -129,16 +129,16 @@
       stage.inert = true;
       document.body.appendChild(stage);
       var ready = menuImages();
-      if (variant === "column") ready = Promise.all([ready, loadImage("assets/ume.png")]);
+      if (variant === "column") ready = Promise.all([ready, loadImage("/assets/ume.png")]);
       var light = variant === "condensed-light" || variant === "condensed-light-text";
       if (light) {
-        var lightImages = [ready, loadImage("assets/logo_black.png")];
+        var lightImages = [ready, loadImage("/assets/logo_black.png")];
         if (variant === "condensed-light") {
           lightImages.push(
-            loadImage("assets/karaage_black.png"),
-            loadImage("assets/mapo_black.png"),
-            loadImage("assets/udon_black.png"),
-            loadImage("assets/sans_black.png")
+            loadImage("/assets/karaage_black.png"),
+            loadImage("/assets/mapo_black.png"),
+            loadImage("/assets/udon_black.png"),
+            loadImage("/assets/sans_black.png")
           );
         }
         ready = Promise.all(lightImages);
@@ -147,12 +147,12 @@
         var ume = variant === "column" ? loaded[1] : null;
         var swaps = null;
         if (light) {
-          swaps = { "assets/logo.png": loaded[1] };
+          swaps = { "/assets/logo.png": loaded[1] };
           if (variant === "condensed-light") {
-            swaps["assets/karaage.png"] = loaded[2];
-            swaps["assets/Mapo.png"] = loaded[3];
-            swaps["assets/Udon.png"] = loaded[4];
-            swaps["assets/sans.png"] = loaded[5];
+            swaps["/assets/karaage.png"] = loaded[2];
+            swaps["/assets/Mapo.png"] = loaded[3];
+            swaps["/assets/Udon.png"] = loaded[4];
+            swaps["/assets/sans.png"] = loaded[5];
           }
         }
         var sheets = [];
